@@ -1,0 +1,14 @@
+<div class="form-title-bar">
+  <h2 class="bold">Reservations</h2>
+  <a routerLink="/" class="closebackbutton">CLOSE</a>
+</div>
+<div class="form-content">
+<div class="form">
+  <form (ngSubmit)="setDate(form_ref.value.date)" #form_ref='ngForm'>
+    <label for="date">Enter Date:</label>
+    <input type="date" name="date" class="form-field" id="date" ngModel required> |
+    <button class="form-field">GET Reservation Data</button>
+  </form>
+</div>
+</div>
+<app-reservation-table *ngIf="dateSelected"></app-reservation-table>

@@ -1,0 +1,26 @@
+.image-container{
+  position: relative;
+  img{
+    display: block;
+  }
+
+  div{
+    background-color: rgba(0, 128, 0, 0.15);
+    &:hover{
+      background-color: rgba(0, 255, 3, 0.66);
+    }
+  }
+
+}
+div.unavailable{
+  background-color: rgba(255, 0, 0, 0.3);
+  &:hover{
+    background-color: rgba(255, 0, 0, 0.66);
+    cursor: not-allowed;
+  }
+}
+
+div.selected{
+  background-color: rgb(85, 252, 32);
+  transition: background-color 0.2s;
+}

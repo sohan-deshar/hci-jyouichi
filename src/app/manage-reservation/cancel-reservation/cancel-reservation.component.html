@@ -1,0 +1,39 @@
+<div class="form-content">
+<div class="form-title-bar">
+  <h2 class="bold">CANCELATION FORM :</h2>
+  <a routerLink="/" class="closebackbutton">CLOSE</a>
+</div>
+<p>
+  In order to cancel your reservation, please fill out the form below.
+  <br>
+  NOTE:
+  <br>
+  1. Enter <b>email / phone number</b> under which the reservation was made
+  <br>
+  2. Enter <b>Reservation Token</b> that you received in your email or as sms
+</p>
+<div class="form">
+  <form (ngSubmit)="onSubmit(form_ref)" #form_ref="ngForm">
+    <label for="email-input"><b>Email:<sup>*</sup></b></label>
+    <br>
+    <input name="email" type="text" class="form-field" id="email-input" style="width: 50%;" placeholder="testing@tester.com" ngModel required>
+    <br>
+    <br>
+    <label for="phone-no-input"><b>Phone Number:<sup>**</sup></b></label>
+    <br>
+    <input name="phone" type="text" class="form-field" id="phone-no-input" style="width: 50%" ngModel>
+    <br>
+    <br>
+    <label for="reser-token"><b>Reservation Token:<sup>*</sup></b></label>
+    <br>
+    <input name="token" type="text" class="form-field" id="reser-token" style="width: 80%" placeholder="Cxz1oOQd74PpXMMEGr7l" ngModel required>
+    <br>
+    <br>
+    <button type="submit" class="form-field" [disabled]="!form_ref.valid">REQUEST CANCELLATION</button>
+    <p>**: one of these fields has to be filled
+      <br>
+      *  : required field
+    </p>
+  </form>
+</div>
+</div>

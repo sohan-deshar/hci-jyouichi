@@ -1,0 +1,29 @@
+<div class="form-content">
+  <div class="form-title-bar">
+    <h2 class="bold">STAFF LOGIN:</h2>
+    <a class="closebackbutton" routerLink="/">CLOSE</a>
+  </div>
+  <div class="form">
+    <form (ngSubmit)="onSubmit(login_form_ref)" #login_form_ref = "ngForm">
+      <label for="username-input" class="bold">USERNAME:<sup>*</sup></label>
+      <br>
+      <input type="text" class="form-field" name="username" id="username-input" style="width: 80%;" ngModel required>
+      <br>
+      <br>
+      <label for="password-input" class="bold">Password:<sup>*</sup></label>
+      <br>
+      <input type="password" class="form-field" id="password-input" name="password" style="width: 80%;" ngModel required>
+      <br>
+      <br>
+      <button type="submit" class="form-field" [disabled]="!login_form_ref.valid">LOGIN</button>
+      <p>
+        *  : required field
+      </p>
+      <p>
+        <small>
+          <i>Speak with human resources head for login</i>
+        </small>
+      </p>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,53 @@
+<div class="mat-elevation-z8">
+  <table mat-table class="full-width-table" matSort aria-label="Elements">
+    <!-- Token Column -->
+    <ng-container matColumnDef="token">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header><h3>Token</h3></th>
+      <td mat-cell *matCellDef="let row">{{row.token}}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header><h3>Name</h3></th>
+      <td mat-cell *matCellDef="let row">{{row.name}}</td>
+    </ng-container>
+
+    <!-- Email Column -->
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header><h3>Email</h3></th>
+      <td mat-cell *matCellDef="let row">{{row.email}}</td>
+    </ng-container>
+
+    <!-- Phone Column -->
+    <ng-container matColumnDef="phone">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header><h3>Phone</h3></th>
+      <td mat-cell *matCellDef="let row">{{row.phone}}</td>
+    </ng-container>
+
+    <!-- Time Column -->
+    <ng-container matColumnDef="time">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header><h3>Time</h3></th>
+      <td mat-cell *matCellDef="let row">{{row.time}}</td>
+    </ng-container>
+
+    <!-- #Guests Column -->
+    <ng-container matColumnDef="numberOfGuests">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header><h3>#Guests</h3></th>
+      <td mat-cell *matCellDef="let row">{{row.numberOfGuests}}</td>
+    </ng-container>
+
+    <!-- #Guests Column -->
+    <ng-container matColumnDef="edits">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
+      <td mat-cell *matCellDef="let row" style="align-content: center">
+        <img src="/assets/svgs/edit.svg" alt="" style="width: 30px; padding: 0 1em; display: none">
+        <img src="/assets/svgs/delete.svg" alt="" style="width: 30px; padding: 0 1em"
+          (click)="removeReservationEntry(row.token)"
+        >
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>

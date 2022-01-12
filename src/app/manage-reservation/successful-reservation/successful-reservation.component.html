@@ -1,0 +1,35 @@
+<div class="form-content">
+  <div class="form-title-bar">
+    <h2 class="bold">RESERVATION SUCCESSFUL</h2>
+    <a class="closebackbutton" (click)="onClose()">CLOSE</a>
+  </div>
+  <div>
+    Your reservation has been made successfully.
+    <hr>
+    Below is your reservation confirmation.
+  </div>
+  <div class="confirmation-message">
+    <h3>Reservation Confirmation</h3>
+    <hr>
+    <p>Dear Customer, <br>
+      A reservation under following person has been successfully made:<br>
+      <b>Name:&emsp;</b>{{this.currentReservation.entry.name}}<br>
+      <b>Email:&emsp;</b>{{this.currentReservation.entry.email}}<br>
+      <b>Phone:&emsp;</b>{{this.currentReservation.entry.phone}}<br>
+      <b>Date:&emsp;</b>{{this.currentReservation.entry.date}}<br>
+      <b>Time:&emsp;</b>{{this.currentReservation.entry.time}}<br>
+      <b>Number of Guests:&emsp;</b>{{this.currentReservation.entry.numberOfGuests}} guests<br>
+      <b>Reservation Token:&emsp;</b>{{this.currentReservation.entry.token}}<br>
+      <br>
+      Kind regards,<br>
+      <b>HCI_Jüichi</b>
+    </p>
+  </div>
+  <div>
+    NOTE:<hr>
+    1. A copy of above confirmation-message is also sent to the provided contact information.
+    <br>
+    2. The <b>reservation token provided above / that you receive in your contact address</b> can be used to cancel your reservation at any time. <br>
+    <hr>
+  </div>
+</div>

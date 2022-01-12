@@ -1,0 +1,25 @@
+#resto-front{
+  max-width: 1000px;
+}
+.introduction{
+  width: 90%;
+  margin: 0 auto;
+}
+
+.food-one{
+  background-color: lightgrey;
+  display: flex;
+  height: 500px;
+  justify-content: space-between;
+
+  p{
+    margin: 1em;
+  }
+}
+
+.location{
+  background-image: url(/assets/imgs/map-placeholder.jpg);
+  height: 300px;
+  display: flex;
+  align-items: center;
+}

@@ -1,0 +1,39 @@
+.container{
+  background: grey;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .sub-container{
+    display: flex;
+    div#nav-list{
+      display: flex;
+
+      a{
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+        padding: 0.5em;
+        margin: 0.5em 0.5em;
+        border-radius: 0.5em;
+        &:hover{
+          background: rgba(211, 211, 211, 0.562);
+        }
+      }
+
+    }
+  }
+
+
+  a#staff-button{
+    text-decoration: none;
+    color: white;
+    padding: 0.5em;
+    margin: 0.5em;
+    background-color: rgba(211, 211, 211, 0.562);
+    border-radius: 0.4em;
+  }
+}
+.activeLink{
+  background: rgba(211, 211, 211, 0.562);
+}

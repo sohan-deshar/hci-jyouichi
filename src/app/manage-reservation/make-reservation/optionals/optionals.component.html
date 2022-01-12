@@ -1,0 +1,20 @@
+<form (ngSubmit)="onSubmit(form_ref)" #form_ref="ngForm">
+  <label for="select-food"><b>Add orders directly to your reservation?</b></label>
+  <br>
+  <button name="select-food" id="select-food" class="select-menu form-field" (click)="openMenuDialog()">CLICK ME</button>
+  <br>
+  <br>
+
+  <label for="select-table"><b>Wanna select your table?</b></label>
+  <br>
+  <button name="select-table" class="select-table form-field" id="select-table" (click)="openSeatingDialog()">CLICK ME</button>
+  <br>
+  <br>
+
+  <label for="special-requests"><b>Any special Requests?</b></label>
+  <br>
+  <textarea name="requests" id="special-requests" rows="5" cols="75" class="form-field"></textarea>
+  <br>
+  <br>
+  <button type="submit" id="submit" class="form-field"><b>RESERVE</b></button>
+</form>

@@ -1,0 +1,50 @@
+<form (ngSubmit)="onSubmit(form_ref)" #form_ref="ngForm">
+  <label for="no-of-guests"><b>Number of guests:<sup>*</sup></b></label>
+  <br>
+  <input
+    type="number"
+    id="no-of-guests"
+    name="number"
+    class="form-field"
+    min="1"
+    max="10"
+    required
+    ngModel
+  >
+  <small><i>for reservation over 10 guests please contact us directly</i></small>
+  <br>
+  <br>
+  <label for="date"><b>Choose a date:<sup>*</sup></b></label>
+  <br>
+  <input type="date" id="date" name="date" class="form-field" required ngModel>
+  <br>
+  <br>
+  <label for="time-select"><b>Choose a time:<sup>*</sup></b></label>
+  <br>
+  <!-- <input
+  type="time"
+  id="time"
+  name="time"
+  class="form-field"
+  min="17:00" max="21:00" value="21:00"
+  step="1800"
+  required>
+  <br> -->
+  <select name="time" id="time-select" class="form-field" required ngModel>
+    <option value="17:00">17:00</option>
+    <option value="17:30">17:30</option>
+    <option value="18:00">18:00</option>
+    <option value="17:30">18:30</option>
+    <option value="19:00">19:00</option>
+    <option value="17:30">19:30</option>
+    <option value="20:00">20:00</option>
+    <option value="17:30">20:30</option>
+    <option value="21:00">21:00</option>
+  </select>
+  <br>
+  <br>
+  <button type="submit" class="form-field" [disabled]="!form_ref.valid"><b>NEXT</b></button>
+  <p>
+    *  : required field
+  </p>
+</form>
