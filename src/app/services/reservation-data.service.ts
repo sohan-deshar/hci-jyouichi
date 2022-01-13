@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {ReservationEntry} from "../modal/reservation-entry";
 import {HttpClient} from "@angular/common/http";
-import {BehaviorSubject, observable, Observable, of} from "rxjs";
+import {BehaviorSubject, Observable, of} from "rxjs";
 
 @Injectable({
   providedIn: 'root'

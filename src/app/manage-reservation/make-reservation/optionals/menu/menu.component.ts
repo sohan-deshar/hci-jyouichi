@@ -1,12 +1,9 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {NgForm} from "@angular/forms";
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
+import {MenuService} from "../../../../services/menu.service";
+import {MenuItem} from "../../../../modal/menu-item";
 
-export interface MenuItem{
-  url: string;
-  title: string;
-  desc: string;
-}
 
 @Component({
   selector: 'app-menu',
@@ -14,17 +11,12 @@ export interface MenuItem{
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent implements OnInit {
-  menuList: MenuItem[];
 
   constructor(
     private dialogRef: MatDialogRef<MenuComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    public menuService: MenuService
   ) {
-    this.menuList = [{
-      url: "",
-      title: "What's for dinner?",
-      desc: "something gotta give"
-    }];
   }
 
   ngOnInit(): void {

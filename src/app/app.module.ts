@@ -28,6 +28,8 @@ import {HttpClientModule} from "@angular/common/http";
 import { ReservationOverviewComponent } from './manage-reservation/make-reservation/reservation-overview/reservation-overview.component';
 import { SuccessfulReservationComponent } from './manage-reservation/successful-reservation/successful-reservation.component';
 import { FeedbackComponent } from './feedback/feedback.component';
+import { MenuPageComponent } from './menu-page/menu-page.component';
+import { MenuBoxComponent } from './menu-page/menu-box/menu-box.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +51,8 @@ import { FeedbackComponent } from './feedback/feedback.component';
     ReservationOverviewComponent,
     SuccessfulReservationComponent,
     FeedbackComponent,
+    MenuPageComponent,
+    MenuBoxComponent,
   ],
   imports: [
     BrowserModule,

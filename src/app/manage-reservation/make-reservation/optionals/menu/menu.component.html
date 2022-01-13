@@ -9,14 +9,39 @@
   <a class="closebackbutton" (click)="closeDialog()">Save</a>
 </div>
 <br>
-<div class="menu-container">
-  <app-menu-item></app-menu-item>
-  <app-menu-item></app-menu-item>
-  <app-menu-item></app-menu-item>
-  <app-menu-item></app-menu-item>
-  <app-menu-item></app-menu-item>
-  <app-menu-item></app-menu-item>
-  <div *ngFor="let item of menuList; let i = index">
-    <app-menu-item [src]="item.url" [title]="item.title" [desc]="item.desc"></app-menu-item>
+<div class="content-wrapper">
+  <hr>
+  <h2 class="bold">drinks</h2>
+  <hr>
+  <div class="menu-container">
+    <div *ngFor="let item of this.menuService.drinks; let i = index">
+      <app-menu-item [data]="item"></app-menu-item>
+    </div>
   </div>
+  <br>
+  <br>
+
+  <hr>
+  <h2 class="bold">main dishes</h2>
+  <hr>
+  <div class="menu-container">
+    <div *ngFor="let item of this.menuService.dishes; let i = index">
+      <app-menu-item [data]="item"></app-menu-item>
+    </div>
+  </div>
+  <br>
+  <br>
+
+  <hr>
+  <h2 class="bold">deserts</h2>
+  <hr>
+  <div class="menu-container">
+    <div *ngFor="let item of this.menuService.deserts; let i = index">
+      <app-menu-item [data]="item"></app-menu-item>
+    </div>
+  </div>
+  <hr>
+  <br>
+  <br>
 </div>
+

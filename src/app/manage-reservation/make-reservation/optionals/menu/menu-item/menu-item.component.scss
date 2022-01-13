@@ -7,13 +7,19 @@ div.item-container{
   div.item-picture{
     width: 100%;
     height: 200px;
-  }
-  div.item-title{
-    h2{
-      margin: 0;
-      background: grey;
+    img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
   }
+  div.item-title{
+    background: grey;
+    h2{
+      margin: 0 1em;
+    }
+  }
+
   div.quantity-selection{
     display: flex;
     justify-content: space-between;
@@ -37,3 +43,4 @@ div.item-container{
     }
   }
 }
+

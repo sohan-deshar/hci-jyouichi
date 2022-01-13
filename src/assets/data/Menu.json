@@ -2,110 +2,110 @@
     "drinks": [
         {
             "name": "Orange Juice",
-            "price": "3.99 Euro",
-            "foto_path": "./resources/Orange.jpeg"
+            "price": "3.99",
+            "source": "/assets/data/Menu/resources/Orange.jpeg"
         },
         {
             "name": "Banana Juice",
-            "price": "4.99 Euro",
-            "foto_path": "./resources/Banana.jpg"
+            "price": "4.99",
+            "source": "/assets/data/Menu/resources/Banana.jpg"
         },
         {
             "name": "Lemonade",
-            "price": "3.99 Euro",
-            "foto_path": "./resources/Lemonade.jpg"
+            "price": "3.99",
+            "source": "/assets/data/Menu/resources/Lemonade.jpg"
         },
         {
             "name": "Milk Shake",
-            "price": "4.99 Euro",
-            "foto_path": "./resources/Milkshake.jpg"
+            "price": "4.99",
+            "source": "/assets/data/Menu/resources/Milkshake.jpg"
         },
         {
             "name": "Strawberry Juice",
-            "price": "3.49 Euro",
-            "foto_path": "./resources/Strawberry.jpg"
+            "price": "3.49",
+            "source": "/assets/data/Menu/resources/Strawberry.jpg"
         },
         {
             "name": "Beer",
-            "price": "5.99 Euro",
-            "foto_path": "./resources/Beer_1.jpg"
+            "price": "5.99",
+            "source": "/assets/data/Menu/resources/Beer_1.jpg"
         },
         {
             "name": "Beer (Alcohol free)",
-            "price": "5.49 Euro",
-            "foto_path": "./resources/Beer_2.jpg"
+            "price": "5.49",
+            "source": "/assets/data/Menu/resources/Beer_2.jpg"
         }
     ],
     "main_dishes": [
         {
             "name": "Pizza",
-            "price": "7.50 Euro",
-            "foto_path": "./resources/Pizza.jpg",
-            "detais": "Unpacked reserved sir offering bed judgment may and quitting speaking. Is do be improved raptures offering required in replying raillery."
+            "price": "7.50",
+            "source": "/assets/data/Menu/resources/Pizza.jpg",
+            "desc": "Unpacked reserved sir offering bed judgment may and quitting speaking. Is do be improved raptures offering required in replying raillery."
         },
         {
             "name": "Pasta",
-            "price": "6.89 Euro",
-            "foto_path": "./resources/Pasta.jpg",
-            "detais": "Unpacked reserved sir offering bed judgment may and quitting speaking. Is do be improved raptures offering required in replying raillery."
+            "price": "6.89",
+            "source": "/assets/data/Menu/resources/Pasta.jpg",
+            "desc": "Unpacked reserved sir offering bed judgment may and quitting speaking. Is do be improved raptures offering required in replying raillery."
         },
         {
             "name": "Double Cheese Burger",
-            "price": "4.50 Euro",
-            "foto_path": "./resources/Burger.jpg",
-            "detais": "Unpacked reserved sir offering bed judgment may and quitting speaking. Is do be improved raptures offering required in replying raillery."
+            "price": "4.50",
+            "source": "/assets/data/Menu/resources/Burger.jpg",
+            "desc": "Unpacked reserved sir offering bed judgment may and quitting speaking. Is do be improved raptures offering required in replying raillery."
         },
         {
             "name": "Fries",
-            "price": "2.99 Euro",
-            "foto_path": "./resources/Fries.jpg",
-            "detais": "Unpacked reserved sir offering bed judgment may and quitting speaking. Is do be improved raptures offering required in replying raillery."
+            "price": "2.99",
+            "source": "/assets/data/Menu/resources/Fries.jpg",
+            "desc": "Unpacked reserved sir offering bed judgment may and quitting speaking. Is do be improved raptures offering required in replying raillery."
         },
         {
             "name": "Salad",
-            "price": "3.89 Euro",
-            "foto_path": "./resources/Salad.jpg",
-            "detais": "Unpacked reserved sir offering bed judgment may and quitting speaking. Is do be improved raptures offering required in replying raillery."
+            "price": "3.89",
+            "source": "/assets/data/Menu/resources/Salad.jpg",
+            "desc": "Unpacked reserved sir offering bed judgment may and quitting speaking. Is do be improved raptures offering required in replying raillery."
         },
         {
             "name": "Rise with chicken (Indian speicalty)",
-            "price": "9.89 Euro",
-            "foto_path": "./resources/Indian_specialty.jpg",
-            "detais": "Unpacked reserved sir offering bed judgment may and quitting speaking. Is do be improved raptures offering required in replying raillery."
+            "price": "9.89",
+            "source": "/assets/data/Menu/resources/Indian_specialty.jpg",
+            "desc": "Unpacked reserved sir offering bed judgment may and quitting speaking. Is do be improved raptures offering required in replying raillery."
         },
         {
             "name": "Sushi",
-            "price": "6.50 Euro",
-            "foto_path": "./resources/Sushi.jpg",
-            "detais": "Unpacked reserved sir offering bed judgment may and quitting speaking. Is do be improved raptures offering required in replying raillery."
+            "price": "6.50",
+            "source": "/assets/data/Menu/resources/Sushi.jpg",
+            "desc": "Unpacked reserved sir offering bed judgment may and quitting speaking. Is do be improved raptures offering required in replying raillery."
         },
         {
             "name": "Vegan Special dish",
-            "price": "7.49 Euro",
-            "foto_path": "./resources/Vegan.jpg",
-            "detais": "Unpacked reserved sir offering bed judgment may and quitting speaking. Is do be improved raptures offering required in replying raillery."
+            "price": "7.49",
+            "source": "/assets/data/Menu/resources/Vegan.jpg",
+            "desc": "Unpacked reserved sir offering bed judgment may and quitting speaking. Is do be improved raptures offering required in replying raillery."
         }
     ],
-    "dessert": [
+    "deserts": [
         {
-            "name": "Ice cream vanilla",
-            "price": "5.33 Euro",
-            "foto_path": "./resources/Ice_cream_vanilla.jpg"
+            "name": "ice cream vanilla",
+            "price": "5.33",
+            "source": "/assets/data/Menu/resources/Ice_cream_vanilla.jpg"
         },
         {
-            "name": "Choco Pudding",
-            "price": "6.96 Euro",
-            "foto_path": "./resources/Choco_pudding.jpg"
+            "name": "choco pudding",
+            "price": "6.96",
+            "source": "/assets/data/Menu/resources/Choco_pudding.jpg"
         },
         {
-            "name": "Choco Cake",
-            "price": "4.77 Euro",
-            "foto_path": "./resources/Chococake.jpg"
+            "name": "choco cake",
+            "price": "4.77",
+            "source": "/assets/data/Menu/resources/Chococake.jpg"
         },
         {
-            "name": "Cream Cake",
-            "price": "4.76 Euro",
-            "foto_path": "./resources/Cream_cake.jpg"
+            "name": "cream cake",
+            "price": "4.76",
+            "source": "/assets/data/Menu/resources/Cream_cake.jpg"
         }
     ]
 }

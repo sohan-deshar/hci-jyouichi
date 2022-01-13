@@ -45,7 +45,14 @@ export class OptionalsComponent implements OnInit {
   }
 
   openMenuDialog() {
-    const dialogRef = this.dialog.open(MenuComponent, standardDialogConfig);
+    let config = new MatDialogConfig();
+    config.width = '1100px';
+    config.height = '1100px';
+    config.disableClose = true;
+    config.position = {
+      top: '50px'
+    };
+    const dialogRef = this.dialog.open(MenuComponent, config);
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result from the parent component: ${result?.username}`);
