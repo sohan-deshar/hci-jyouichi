@@ -1,0 +1,96 @@
+<div class="form-content">
+  <div class="form-title-bar">
+    <h2 class="bold">Feedback FORM :</h2>
+    <a routerLink="/" class="closebackbutton">CLOSE</a>
+  </div>
+
+  <p>Please type in your feedback and click "Send":</p>
+  <form class="form">
+    <p>Choose your subject:</p>
+    <div class="subject-buttons-container">
+      <button
+        id="foodButton"
+        class="radio-button"
+        (click)="selectSubject('food')"
+        [ngClass]="{radioButtonSelected: currentSubject === 'food'}"
+      >
+        Food
+      </button>
+      <button
+        id="serviceButton"
+        class="radio-button"
+        (click)="selectSubject('service')"
+        [ngClass]="{radioButtonSelected: currentSubject === 'service'}"
+      >
+        Service
+      </button>
+      <button
+        id="websiteButton"
+        class="radio-button"
+        (click)="selectSubject('website')"
+        [ngClass]="{radioButtonSelected: currentSubject === 'website'}"
+      >
+        Website
+      </button>
+
+      <button
+        id="otherButton"
+        class="radio-button"
+        (click)="selectSubject('other')"
+        [ngClass]="{radioButtonSelected: currentSubject === 'other'}"
+
+      >
+        Other
+      </button>
+    </div>
+    <br>
+    <div>
+      <p>Rate the subject</p>
+      <div>
+        <img
+          [src]="source[0]"
+          class="star-icon"
+          (click)="selectStar(1)"
+        >
+        <img
+          [src]="source[1]"
+          class="star-icon"
+          (click)="selectStar(2)"
+        >
+        <img
+          [src]="source[2]"
+          class="star-icon"
+          (click)="selectStar(3)"
+        >
+        <img
+          [src]="source[3]"
+          class="star-icon"
+          (click)="selectStar(4)"
+        >
+        <img
+          [src]="source[4]"
+          class="star-icon"
+          (click)="selectStar(5)"
+        >
+      </div>
+    </div>
+    <br >
+    <br >
+    <br >
+    <label for="feedback-content">Your Feedback: </label>
+    <br >
+    <textarea
+      id="feedback-content"
+      oninput="textChange()"
+      placeholder="In my opinion..."
+    ></textarea>
+    <div>
+      <div class="counters-container">
+        <p>max: 150 left: <span>150</span></p>
+      </div>
+    </div>
+
+    <br>
+    <a (click)="sendFeedBack()" class="send-button"> Send</a>
+  </form>
+</div>

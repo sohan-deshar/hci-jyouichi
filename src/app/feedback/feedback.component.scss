@@ -1,0 +1,60 @@
+textarea {
+  resize: none;
+  width: 100%;
+  font-size: 14pt;
+  font-family: sans-serif;
+  height: 25vh;
+}
+
+.send-button {
+  font-size: 14pt;
+  padding: 8px 24px;
+  border-radius: 1.5em;
+  background-color: gray;
+  color: white;
+  text-decoration: none;
+}
+.send-button:hover {
+  background-color: #8f8f8f;
+}
+
+.counters-container {
+  width: 100%;
+
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+  font-size: 10pt;
+}
+
+.subject-buttons-container {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.radio-button {
+  width: fit-content;
+  min-width: 90px;
+  padding: 6px;
+  border: none;
+  border-radius: 4px;
+  background-color: rgb(49, 49, 49);
+  color: white;
+  font-weight: bold;
+}
+.radioButtonSelected {
+  width: fit-content;
+  min-width: 90px;
+  padding: 6px;
+  border: none;
+  border-radius: 4px;
+  background-color: rgb(134, 134, 134);
+  color: white;
+  font-weight: bold;
+}
+
+.star-icon {
+  max-width: 32px;
+  max-height: 32px;
+}
