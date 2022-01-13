@@ -27,6 +27,7 @@ import { ReservationTableComponent } from './staff/reservation-table/reservation
 import {HttpClientModule} from "@angular/common/http";
 import { ReservationOverviewComponent } from './manage-reservation/make-reservation/reservation-overview/reservation-overview.component';
 import { SuccessfulReservationComponent } from './manage-reservation/successful-reservation/successful-reservation.component';
+import { FeedbackComponent } from './feedback/feedback.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { SuccessfulReservationComponent } from './manage-reservation/successful-
     ReservationTableComponent,
     ReservationOverviewComponent,
     SuccessfulReservationComponent,
+    FeedbackComponent,
   ],
   imports: [
     BrowserModule,

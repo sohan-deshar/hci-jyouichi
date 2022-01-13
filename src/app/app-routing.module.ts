@@ -14,6 +14,7 @@ import {StaffAuthGuard} from "./services/staff-auth.guard";
 import {
   SuccessfulReservationComponent
 } from "./manage-reservation/successful-reservation/successful-reservation.component";
+import {FeedbackComponent} from "./feedback/feedback.component";
 
 const routes: Routes = [
   {path: "", component: HomeComponent, pathMatch: "full"},
@@ -26,6 +27,7 @@ const routes: Routes = [
     ]},
   {path: "cancel-reservation", component: CancelReservationComponent},
   {path: "successful-reservation", component: SuccessfulReservationComponent},
+  {path: "feedback", component: FeedbackComponent},
 
 ];
 
