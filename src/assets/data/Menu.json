@@ -1,0 +1,111 @@
+{
+    "drinks": [
+        {
+            "name": "Orange Juice",
+            "price": "3.99 Euro",
+            "foto_path": "./resources/Orange.jpeg"
+        },
+        {
+            "name": "Banana Juice",
+            "price": "4.99 Euro",
+            "foto_path": "./resources/Banana.jpg"
+        },
+        {
+            "name": "Lemonade",
+            "price": "3.99 Euro",
+            "foto_path": "./resources/Lemonade.jpg"
+        },
+        {
+            "name": "Milk Shake",
+            "price": "4.99 Euro",
+            "foto_path": "./resources/Milkshake.jpg"
+        },
+        {
+            "name": "Strawberry Juice",
+            "price": "3.49 Euro",
+            "foto_path": "./resources/Strawberry.jpg"
+        },
+        {
+            "name": "Beer",
+            "price": "5.99 Euro",
+            "foto_path": "./resources/Beer_1.jpg"
+        },
+        {
+            "name": "Beer (Alcohol free)",
+            "price": "5.49 Euro",
+            "foto_path": "./resources/Beer_2.jpg"
+        }
+    ],
+    "main_dishes": [
+        {
+            "name": "Pizza",
+            "price": "7.50 Euro",
+            "foto_path": "./resources/Pizza.jpg",
+            "detais": "Unpacked reserved sir offering bed judgment may and quitting speaking. Is do be improved raptures offering required in replying raillery."
+        },
+        {
+            "name": "Pasta",
+            "price": "6.89 Euro",
+            "foto_path": "./resources/Pasta.jpg",
+            "detais": "Unpacked reserved sir offering bed judgment may and quitting speaking. Is do be improved raptures offering required in replying raillery."
+        },
+        {
+            "name": "Double Cheese Burger",
+            "price": "4.50 Euro",
+            "foto_path": "./resources/Burger.jpg",
+            "detais": "Unpacked reserved sir offering bed judgment may and quitting speaking. Is do be improved raptures offering required in replying raillery."
+        },
+        {
+            "name": "Fries",
+            "price": "2.99 Euro",
+            "foto_path": "./resources/Fries.jpg",
+            "detais": "Unpacked reserved sir offering bed judgment may and quitting speaking. Is do be improved raptures offering required in replying raillery."
+        },
+        {
+            "name": "Salad",
+            "price": "3.89 Euro",
+            "foto_path": "./resources/Salad.jpg",
+            "detais": "Unpacked reserved sir offering bed judgment may and quitting speaking. Is do be improved raptures offering required in replying raillery."
+        },
+        {
+            "name": "Rise with chicken (Indian speicalty)",
+            "price": "9.89 Euro",
+            "foto_path": "./resources/Indian_specialty.jpg",
+            "detais": "Unpacked reserved sir offering bed judgment may and quitting speaking. Is do be improved raptures offering required in replying raillery."
+        },
+        {
+            "name": "Sushi",
+            "price": "6.50 Euro",
+            "foto_path": "./resources/Sushi.jpg",
+            "detais": "Unpacked reserved sir offering bed judgment may and quitting speaking. Is do be improved raptures offering required in replying raillery."
+        },
+        {
+            "name": "Vegan Special dish",
+            "price": "7.49 Euro",
+            "foto_path": "./resources/Vegan.jpg",
+            "detais": "Unpacked reserved sir offering bed judgment may and quitting speaking. Is do be improved raptures offering required in replying raillery."
+        }
+    ],
+    "dessert": [
+        {
+            "name": "Ice cream vanilla",
+            "price": "5.33 Euro",
+            "foto_path": "./resources/Ice_cream_vanilla.jpg"
+        },
+        {
+            "name": "Choco Pudding",
+            "price": "6.96 Euro",
+            "foto_path": "./resources/Choco_pudding.jpg"
+        },
+        {
+            "name": "Choco Cake",
+            "price": "4.77 Euro",
+            "foto_path": "./resources/Chococake.jpg"
+        },
+        {
+            "name": "Cream Cake",
+            "price": "4.76 Euro",
+            "foto_path": "./resources/Cream_cake.jpg"
+        }
+    ]
+}

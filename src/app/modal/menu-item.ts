@@ -3,4 +3,5 @@ export interface MenuItem {
   name: string;
   desc: string;
   price: number;
+  source: string;
 }
