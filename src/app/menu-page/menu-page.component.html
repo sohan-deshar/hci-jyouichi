@@ -1,0 +1,39 @@
+<div class="form-title-bar">
+  <h1 class="bold">our menus</h1>
+  <a class="closebackbutton" routerLink="/">Close</a>
+</div>
+<div class="content-wrapper">
+  <hr>
+  <h2 class="bold">drinks</h2>
+  <hr>
+  <div class="menu-container">
+    <div *ngFor="let item of this.menuService.drinks; let i = index">
+      <app-menu-box [data]="item"></app-menu-box>
+    </div>
+  </div>
+  <br>
+  <br>
+
+  <hr>
+  <h2 class="bold">main dishes</h2>
+  <hr>
+  <div class="menu-container">
+    <div *ngFor="let item of this.menuService.dishes; let i = index">
+      <app-menu-box [data]="item"></app-menu-box>
+    </div>
+  </div>
+  <br>
+  <br>
+
+  <hr>
+  <h2 class="bold">deserts</h2>
+  <hr>
+  <div class="menu-container">
+    <div *ngFor="let item of this.menuService.deserts; let i = index">
+      <app-menu-box [data]="item"></app-menu-box>
+    </div>
+  </div>
+  <hr>
+  <br>
+  <br>
+</div>

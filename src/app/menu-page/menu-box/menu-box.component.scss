@@ -1,0 +1,44 @@
+div.item-container{
+  min-height: 10px;
+  background: lightgrey;
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  div.item-picture{
+    width: 100%;
+    height: 200px;
+    img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  div.item-title{
+    background: grey;
+    h2{
+      margin: 0 1em;
+    }
+  }
+  div.quantity-selection{
+    display: flex;
+    justify-content: space-between;
+    button{
+      font-size: 1.1em;
+      border-radius: 1em;
+      width: 20%;
+      border: 1px solid black;
+    }
+    input{
+      border: 1px solid black;
+      text-align: center;
+      font-size: 1.5em;
+      border-radius: 1em;
+      width: 50%;
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button {
+        appearance: none;
+      }
+
+    }
+  }
+}
