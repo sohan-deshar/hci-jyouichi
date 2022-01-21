@@ -28,6 +28,8 @@ $Juichi-theme: mat.define-light-theme((
   )
 ));
 
+@import "src/shared/_variables.scss";
+
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
@@ -71,10 +73,10 @@ a.brand{
     cursor: pointer;
     text-decoration: none;
     color: white;
-    font-weight: bold;
+    font-weight: bolder;
     padding: 0.5em;
     border-radius: 1.5em;
-    background-color: grey;
+    background-color: $color-5;
   }
 
 }
@@ -85,24 +87,28 @@ a.brand{
 }
 
 .form{
-  border: 1px solid black;
+  border: 1px solid lightgrey;
   border-radius: 1em;
   padding: 1em;
   margin: 1em 0;
-  background-color: lightgrey;
+  background-color: $color-2;
 }
 
 .form-field{
-  border: 1px solid black;
+  border: 1px solid lightgrey;
   border-radius: 1em;
   padding: 0.5em;
+  &:focus, &:hover{
+    border: 2px solid $color-4;
+    outline: $color-5;
+    z-index: 1;
+  }
 }
 
 button{
   cursor: pointer;
-  background: grey;
-  color: white;
-  border: 2px solid black;
+  background: $color-5;
+  color: $color-1;
 
   &:disabled{
     cursor: not-allowed;

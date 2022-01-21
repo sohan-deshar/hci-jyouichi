@@ -1,6 +1,7 @@
+@import "src/shared/_variables.scss";
 footer{
   display: flex;
-  background-color: grey;
+  background-color: $color-4;
   align-items: flex-start;
   margin-top: auto;
 
