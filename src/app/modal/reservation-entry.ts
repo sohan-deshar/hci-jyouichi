@@ -2,7 +2,8 @@ import {Order} from "./order";
 
 export interface ReservationEntry {
   token: string;
-  name: string;
+  firstName: string;
+  lastName: string;
   email: string;
   phone: string;
   numberOfGuests: number;

@@ -1,22 +1,51 @@
 <form (ngSubmit)="onSubmit(form_ref)" #form_ref="ngForm">
   <label for="firstname-input"><b>First Name:<sup>*</sup></b></label>
   <br>
-  <input type="text" class="form-field" id="firstname-input" placeholder="Max" style="width: 50%;" name="firstname" ngModel required>
+  <input
+    type="text"
+    class="form-field"
+    id="firstname-input"
+    placeholder="Max"
+    style="width: 50%;"
+    name="firstName"
+    [(ngModel)]="this.getCurrentReservationObject().firstName" required>
   <br>
   <br>
   <label for="lastname-input"><b>Last Name:<sup>*</sup></b></label>
   <br>
-  <input type="text" class="form-field" id="lastname-input" placeholder="Mustermann" style="width: 50%;" name="lastname" ngModel required>
+  <input
+    type="text"
+    class="form-field"
+    id="lastname-input"
+    placeholder="Mustermann"
+    style="width: 50%;"
+    name="lastName"
+    [(ngModel)]="getCurrentReservationObject().lastName" required>
   <br>
   <br>
   <label for="email-input"><b>Email:<sup>*</sup></b></label>
   <br>
-  <input type="email" class="form-field" id="email-input" placeholder="muster@max.com" style="width: 70%;" name="email" ngModel required email>
+  <input
+    type="email"
+    class="form-field"
+    id="email-input"
+    placeholder="muster@max.com"
+    style="width: 70%;"
+    name="email"
+    [(ngModel)]="getCurrentReservationObject().email"
+    required email>
   <br>
   <br>
   <label for="phone-no-input"><b>Phone Number:<sup>**</sup></b></label>
   <br>
-  <input type="text" class="form-field" id="phone-no-input" placeholder="+49 0176 0000000" style="width: 50%;" name="phone" ngModel #phone>
+  <input
+    type="text"
+    class="form-field"
+    id="phone-no-input"
+    placeholder="+49 0176 0000000"
+    style="width: 50%;"
+    name="phone"
+    [(ngModel)]="getCurrentReservationObject().phone">
   <br>
   <br>
   <button type="submit" class="form-field" [disabled]="!form_ref.valid"><b>NEXT</b></button>

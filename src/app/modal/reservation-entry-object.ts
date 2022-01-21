@@ -17,12 +17,13 @@ function generateString(length: number) {
   return result;
 }
 
-export class ReseravtionEntryObject implements ReservationEntry{
+export class ReservationEntryObject implements ReservationEntry{
 
 
   private _date!: string;
   private _email!: string;
-  private _name!: string;
+  private _firstName!: string;
+  private _lastName!: string;
   private _numberOfGuests!: number;
   private _phone!: string;
   private _preOrders!: Order[];
@@ -30,6 +31,7 @@ export class ReseravtionEntryObject implements ReservationEntry{
   private _specialRequests!: string;
   private _time!: string;
   private _token!: string;
+
 
 
   constructor() {
@@ -41,20 +43,27 @@ export class ReseravtionEntryObject implements ReservationEntry{
     this._token = generateRandomToken();
   }
 
+  get firstName(): string {
+    return this._firstName;
+  }
+
+  set firstName(value: string) {
+    this._firstName = value;
+  }
+
+  get lastName(): string {
+    return this._lastName;
+  }
+  set lastName(value: string) {
+    this._lastName = value;
+  }
+
   get email(): string {
     return this._email;
   }
 
   set email(value: string) {
     this._email = value;
-  }
-
-  get name(): string {
-    return this._name;
-  }
-
-  set name(value: string) {
-    this._name = value;
   }
 
   get numberOfGuests(): number {

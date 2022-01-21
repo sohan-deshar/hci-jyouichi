@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {CurrentReservationService} from "../../services/current-reservation.service";
-import {ReseravtionEntryObject} from "../../modal/reseravtion-entry-object";
+import {ReservationEntryObject} from "../../modal/reservation-entry-object";
 import {Router} from "@angular/router";
 
 @Component({
@@ -19,7 +19,7 @@ export class SuccessfulReservationComponent implements OnInit {
   }
 
   onClose() {
-    this.currentReservation.entry = new ReseravtionEntryObject();
+    this.currentReservation.entry = new ReservationEntryObject();
     this.router.navigate(['/']);
   }
 }

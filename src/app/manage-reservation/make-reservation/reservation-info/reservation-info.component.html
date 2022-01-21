@@ -9,14 +9,21 @@
     min="1"
     max="10"
     required
-    ngModel
+    [(ngModel)]="getCurrentReservation().numberOfGuests"
   >
   <small><i>for reservation over 10 guests please contact us directly</i></small>
   <br>
   <br>
   <label for="date"><b>Choose a date:<sup>*</sup></b></label>
   <br>
-  <input type="date" id="date" name="date" class="form-field" required ngModel>
+  <input
+    type="date"
+    id="date"
+    name="date"
+    class="form-field"
+    required
+    [(ngModel)]="getCurrentReservation().date"
+  >
   <br>
   <br>
   <label for="time-select"><b>Choose a time:<sup>*</sup></b></label>
@@ -30,7 +37,13 @@
   step="1800"
   required>
   <br> -->
-  <select name="time" id="time-select" class="form-field" required ngModel>
+  <select
+    name="time"
+    id="time-select"
+    class="form-field"
+    required
+    [(ngModel)]="getCurrentReservation().time"
+  >
     <option value="17:00">17:00</option>
     <option value="17:30">17:30</option>
     <option value="18:00">18:00</option>

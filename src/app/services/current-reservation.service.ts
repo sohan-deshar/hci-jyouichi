@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
-import {ReseravtionEntryObject} from "../modal/reseravtion-entry-object";
+import {ReservationEntryObject} from "../modal/reservation-entry-object";
 
 @Injectable({
   providedIn: 'root'
 })
 export class CurrentReservationService {
-  entry: ReseravtionEntryObject;
+  entry: ReservationEntryObject;
 
   constructor() {
-    this.entry = new ReseravtionEntryObject();
+    this.entry = new ReservationEntryObject();
   }
 
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {NgForm} from "@angular/forms";
 import {CurrentReservationService} from "../../../services/current-reservation.service";
+import {ReservationEntryObject} from "../../../modal/reservation-entry-object";
 import {Router} from "@angular/router";
 
 @Component({
@@ -24,9 +25,10 @@ export class ReservationInfoComponent implements OnInit {
     this.currentReservation.entry.numberOfGuests = form.value.numberOfGuests;
 
     console.log(this.currentReservation.entry);
-
-
-
     this.router.navigate(['/make-reservation/optionals']);
+  }
+
+  getCurrentReservation(): ReservationEntryObject {
+    return this.currentReservation.entry;
   }
 }
