@@ -1,0 +1,74 @@
+@import "src/shared/_variables.scss";
+
+.button-container{
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-title-bar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1em;
+  h2{
+    margin: 0;
+  }
+  .closebackbutton {
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+    font-weight: bolder;
+    padding: 0.5em;
+    border-radius: 1.5em;
+    background-color: $color-5;
+  }
+}
+
+.form-content{
+  width: 70%;
+  margin: 0 auto;
+}
+
+
+a.brand{
+  text-decoration: none;
+  color: white;
+  font-size: xx-large;
+  padding: 0.4em;
+}
+
+.form{
+  border: 1px solid lightgrey;
+  border-radius: 1em;
+  padding: 1em;
+  margin: 1em 0;
+  background-color: $color-2;
+}
+
+.form-field{
+  border: 1px solid lightgrey;
+  border-radius: 1em;
+  padding: 0.5em;
+  &:focus, &:hover{
+    border: 2px solid $color-4;
+    outline: $color-5;
+    z-index: 1;
+  }
+}
+
+.button-container > button.form-field{
+  cursor: pointer;
+  background: $color-5;
+  color: $color-1;
+  border-radius: 2em;
+  padding: 1em 2em;
+
+  &:disabled{
+    cursor: not-allowed;
+  }
+}
+
+.button-container > button.comp-color, .comp-color{
+  background: $color-5_comp;
+  color: $color-4;
+}
