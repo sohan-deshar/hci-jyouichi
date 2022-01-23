@@ -1,21 +1,27 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {MenuItem} from "../../../../../modal/menu-item";
+import {CurrentReservationService} from "../../../../../services/current-reservation.service";
 
 @Component({
   selector: 'app-menu-item',
   templateUrl: './menu-item.component.html',
   styleUrls: ['./menu-item.component.scss']
 })
-export class MenuItemComponent implements OnInit {
-  @Input("src")pictureUrl: string = "";
-  @Input()title: string = "The name of dish";
-  @Input()desc: string = "The description of the menu item";
+export class MenuItemComponent implements OnInit, OnDestroy {
   @Input()data!: MenuItem;
-  quantity: number = 0;
+  @Input()quantity: number = 0;
 
-  constructor() { }
+  constructor(private currentReservation: CurrentReservationService) { }
 
   ngOnInit(): void {
   }
 
+  ngOnDestroy() {
+    if(this.quantity > 0) {
+      this.currentReservation.entry.addOrderItem({
+        menuId: this.data.menuId,
+        quantity: this.quantity
+      });
+    }
+  }
 }

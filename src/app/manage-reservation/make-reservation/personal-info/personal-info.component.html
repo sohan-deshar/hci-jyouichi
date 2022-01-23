@@ -20,7 +20,9 @@
     placeholder="Mustermann"
     style="width: 50%;"
     name="lastName"
-    [(ngModel)]="getCurrentReservationObject().lastName" required>
+    [(ngModel)]="getCurrentReservationObject().lastName"
+    required
+  >
   <br>
   <br>
   <label for="email-input"><b>Email:<sup>*</sup></b></label>
@@ -48,7 +50,9 @@
     [(ngModel)]="getCurrentReservationObject().phone">
   <br>
   <br>
-  <button type="submit" class="form-field" [disabled]="!form_ref.valid"><b>NEXT</b></button>
+  <div class="button-container">
+    <button type="submit" class="form-field" [disabled]="!form_ref.valid"><b>NEXT</b></button>
+  </div>
   <p>
     *  : required field <br>
     ** : optional field

@@ -26,8 +26,8 @@ export class ReservationEntryObject implements ReservationEntry{
   private _lastName!: string;
   private _numberOfGuests!: number;
   private _phone!: string;
-  private _preOrders!: Order[];
-  private _seat!: string;
+  private _preOrders: Order[] = [];
+  private _seat: string[] = [];
   private _specialRequests!: string;
   private _time!: string;
   private _token!: string;
@@ -36,11 +36,31 @@ export class ReservationEntryObject implements ReservationEntry{
 
   constructor() {
     this._phone = "";
-    this._preOrders = [];
-    this._seat = "";
     this._specialRequests = "";
 
     this._token = generateRandomToken();
+  }
+
+  getOrderQuantityByMenuId(menuId: string): number {
+    if(this._preOrders == null) {
+      return 0;
+    }
+    for (const order of this._preOrders) {
+      if (order.menuId === menuId) {
+        return order.quantity;
+      }
+    }
+    return 0;
+  }
+
+  addOrderItem(order: Order) {
+    for(const item of this._preOrders) {
+      if(item.menuId === order.menuId) {
+        item.quantity = order.quantity;
+        return;
+      }
+    }
+    this._preOrders.push(order);
   }
 
   get firstName(): string {
@@ -90,11 +110,11 @@ export class ReservationEntryObject implements ReservationEntry{
     this._preOrders = value;
   }
 
-  get seat(): string {
+  get seat(): string[] {
     return this._seat;
   }
 
-  set seat(value: string) {
+  set seat(value: string[]) {
     this._seat = value;
   }
 
@@ -129,4 +149,11 @@ export class ReservationEntryObject implements ReservationEntry{
     this._date = value;
   }
 
+  addSeat(item: string) {
+     if(item in this._seat) {
+       return;
+     }else {
+       this._seat.push(item);
+     }
+  }
 }

@@ -56,7 +56,10 @@
   </select>
   <br>
   <br>
-  <button type="submit" class="form-field" [disabled]="!form_ref.valid"><b>NEXT</b></button>
+  <div class="button-container">
+    <button class="form-field comp-color" (click)="goBack()"><b>BACK</b></button>
+    <button type="submit" class="form-field" [disabled]="!form_ref.valid"><b>NEXT</b></button>
+  </div>
   <p>
     *  : required field
   </p>

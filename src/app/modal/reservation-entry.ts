@@ -9,7 +9,7 @@ export interface ReservationEntry {
   numberOfGuests: number;
   date: string;
   time: string;
-  seat: string;
+  seat: string[];
   specialRequests: string;
-  preOrders: Order[];
+  preOrders: Array<Order>;
 }

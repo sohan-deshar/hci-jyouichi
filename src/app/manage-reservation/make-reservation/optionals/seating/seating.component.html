@@ -1,7 +1,9 @@
 <div class="form-title-bar">
-  <h2 class="bold">Select tables</h2>
-  <a class="closebackbutton" (click)="closeDialog()">Save</a>
+  <a class="closebackbutton normal comp-color" (click)="onClose()">CLOSE</a>
+  <h1 class="bold">our menus</h1>
+  <a class="closebackbutton normal" (click)="onSave()">SAVE</a>
 </div>
+<h2 class="normal" [ngClass]="{'highlight': highlight}">You are selecting for {{seatingFor}} guests</h2>
 <div class="image-container" #container (click)="markIfSeatSelected($event)">
   <img src="/assets/imgs/restaurant1000px.png" usemap="#image-map" >
 </div>

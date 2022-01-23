@@ -31,4 +31,8 @@ export class ReservationInfoComponent implements OnInit {
   getCurrentReservation(): ReservationEntryObject {
     return this.currentReservation.entry;
   }
+
+  goBack() {
+    this.router.navigate(['/make-reservation/personal-info']);
+  }
 }

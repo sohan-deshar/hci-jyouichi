@@ -105,10 +105,12 @@ a.brand{
   }
 }
 
-button{
+.button-container > button.form-field{
   cursor: pointer;
   background: $color-5;
   color: $color-1;
+  border-radius: 2em;
+  padding: 1em 2em;
 
   &:disabled{
     cursor: not-allowed;
@@ -120,4 +122,9 @@ button{
 
 body{
   margin: 0;
+}
+
+.button-container > button.comp-color, .comp-color{
+  background: $color-5_comp;
+  color: $color-4;
 }
