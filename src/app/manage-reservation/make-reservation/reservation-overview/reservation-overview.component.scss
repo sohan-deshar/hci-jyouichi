@@ -5,3 +5,13 @@ div.confirmation-message{
   margin: 1em 0;
   background-color: lightgrey;
 }
+
+ul{
+  padding: 0;
+}
+.list-item{
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  font-size: smaller;
+}

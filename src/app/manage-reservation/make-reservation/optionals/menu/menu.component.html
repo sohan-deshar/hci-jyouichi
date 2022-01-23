@@ -43,7 +43,7 @@
   <h2 class="bold">desserts</h2>
   <hr>
   <div class="menu-container">
-    <div *ngFor="let item of this.menuService.deserts; let i = index">
+    <div *ngFor="let item of this.menuService.desserts; let i = index">
       <app-menu-item
         [data]="item"
         [quantity]="currentReservation.entry.getOrderQuantityByMenuId(item.menuId)"

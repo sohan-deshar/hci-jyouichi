@@ -37,7 +37,6 @@ export class OptionalsComponent implements OnInit {
 
   onSubmit(form: NgForm) {
     this.currentReservation.entry.specialRequests = form.value.specialRequests;
-    this.currentReservation.entry.preOrders = this.preOrder!;
 
     this.openOverViewDialog();
 
@@ -86,7 +85,14 @@ export class OptionalsComponent implements OnInit {
   }
 
   private openOverViewDialog() {
-    const dialogRef = this.dialog.open(ReservationOverviewComponent, standardDialogConfig);
+    let config = new MatDialogConfig();
+    config.disableClose = true;
+    config.width = '1100px';
+    config.position = {
+      top: '50px'
+    };
+    config.data = {injector: this.injector};
+    const dialogRef = this.dialog.open(ReservationOverviewComponent, config);
   }
 
   goBack() {

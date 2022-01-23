@@ -3,6 +3,7 @@ import {CurrentReservationService} from "../../services/current-reservation.serv
 import {ReservationEntryObject} from "../../modal/reservation-entry-object";
 import {Router} from "@angular/router";
 import {QRCode} from 'qrcode';
+import {MenuService} from "../../services/menu.service";
 
 @Component({
   selector: 'app-successful-reservation',
@@ -16,7 +17,8 @@ export class SuccessfulReservationComponent implements OnInit, AfterViewInit {
   constructor(
     public currentReservation: CurrentReservationService,
     public router: Router,
-    private renderer: Renderer2
+    private renderer: Renderer2,
+    public menuService: MenuService
   ) { }
 
   ngOnInit(): void {

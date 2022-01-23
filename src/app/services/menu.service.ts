@@ -7,18 +7,23 @@ import {MenuItem} from "../modal/menu-item";
 })
 export class MenuService {
 
-  menu: any;
+  menu: MenuItem[] = [];
   drinks: MenuItem[] = [];
-  deserts: MenuItem[] = [];
+  desserts: MenuItem[] = [];
   dishes: MenuItem[] = [];
 
   constructor(private http: HttpClient) {
-    this.http.get<{'drinks': MenuItem[], 'main_dishes': MenuItem[], 'deserts': MenuItem[]}>('./assets/data/Menu.json').subscribe(data => {
+    this.http.get<MenuItem[]>('./assets/data/Menu.json').subscribe(data => {
       this.menu = data;
-      this.drinks = this.menu['drinks'];
-      this.dishes = this.menu['main_dishes'];
-      this.deserts = this.menu['deserts'];
+      this.drinks = this.menu.filter(item => item.type === 'drink');
+      this.desserts = this.menu.filter(item => item.type === 'dessert');
+      this.dishes = this.menu.filter(item => item.type === 'main');
       console.log(data);
     });
+
+  }
+
+  getMenuNameByMenuId(menuId: string): string {
+    return this.menu.filter(item => item.menuId === menuId)[0].name;
   }
 }
