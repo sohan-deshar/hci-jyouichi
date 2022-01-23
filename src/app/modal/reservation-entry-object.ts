@@ -2,7 +2,7 @@ import {ReservationEntry} from "./reservation-entry";
 import {Order} from "./order";
 
 function generateRandomToken() {
-  return generateString(10);
+  return generateString(20);
 }
 
 const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
