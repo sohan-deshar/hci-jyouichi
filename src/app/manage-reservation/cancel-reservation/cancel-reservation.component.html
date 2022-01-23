@@ -29,7 +29,9 @@
     <input name="token" type="text" class="form-field" id="reser-token" style="width: 80%" placeholder="Cxz1oOQd74PpXMMEGr7l" ngModel required>
     <br>
     <br>
-    <button type="submit" class="form-field" [disabled]="!form_ref.valid">REQUEST CANCELLATION</button>
+    <div class="button-container">
+      <button type="submit" class="form-field" [disabled]="!form_ref.valid">REQUEST CANCELLATION</button>
+    </div>
     <p>**: one of these fields has to be filled
       <br>
       *  : required field

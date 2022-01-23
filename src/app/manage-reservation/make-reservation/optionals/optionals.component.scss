@@ -1,10 +1,6 @@
 @import "src/shared/_variables.scss";
+@import 'src/shared/_reservation-forms.scss';
 textarea{
   width: 80%;
   resize: none;;
-}
-
-.button-container{
-  display: flex;
-  justify-content: space-between;
 }

@@ -1,10 +1,6 @@
 import {ReservationEntry} from "./reservation-entry";
 import {Order} from "./order";
 
-function generateRandomToken() {
-  return generateString(20);
-}
-
 const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 
 function generateString(length: number) {
@@ -37,8 +33,10 @@ export class ReservationEntryObject implements ReservationEntry{
   constructor() {
     this._phone = "";
     this._specialRequests = "";
+  }
 
-    this._token = generateRandomToken();
+  generateRandomToken() {
+    return generateString(20);
   }
 
   getOrderQuantityByMenuId(menuId: string): number {
