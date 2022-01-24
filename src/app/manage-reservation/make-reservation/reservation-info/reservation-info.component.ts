@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {NgForm} from "@angular/forms";
 import {CurrentReservationService} from "../../../services/current-reservation.service";
 import {ReservationEntryObject} from "../../../modal/reservation-entry-object";
@@ -11,6 +11,8 @@ import {Router} from "@angular/router";
 })
 export class ReservationInfoComponent implements OnInit {
 
+  @ViewChild('date') date!: ElementRef;
+
   constructor(
     private currentReservation: CurrentReservationService,
     private router: Router
@@ -19,10 +21,14 @@ export class ReservationInfoComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  ngAfterViewInit(): void {
+    this.date.nativeElement.min = new Date().setDate(new Date().getDate() + 1);
+  }
+
   onSubmit(form: NgForm) {
-    this.currentReservation.entry.date = form.value.date;
-    this.currentReservation.entry.time = form.value.time;
-    this.currentReservation.entry.numberOfGuests = form.value.numberOfGuests;
+    // this.currentReservation.entry.date = form.value.date;
+    // this.currentReservation.entry.time = form.value.time;
+    // this.currentReservation.entry.numberOfGuests = form.value.numberOfGuests;
 
     console.log(this.currentReservation.entry);
     this.router.navigate(['/make-reservation/optionals']);

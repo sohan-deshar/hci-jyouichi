@@ -8,8 +8,13 @@
     placeholder="Max"
     style="width: 50%;"
     name="firstName"
-    [(ngModel)]="this.getCurrentReservationObject().firstName" required>
-  <br>
+    [ngClass]="{'error-field': firstName.invalid && firstName.touched}"
+    [(ngModel)]="this.getCurrentReservationObject().firstName" required
+    #firstName="ngModel"
+  >
+  <div *ngIf="(firstName.touched && firstName.invalid)">
+    <small class="error-message">This field is required</small>
+  </div>
   <br>
   <label for="lastname-input"><b>Last Name:<sup>*</sup></b></label>
   <br>
@@ -20,10 +25,14 @@
     placeholder="Mustermann"
     style="width: 50%;"
     name="lastName"
+    [ngClass]="{'error-field': lastName.invalid && lastName.touched}"
     [(ngModel)]="getCurrentReservationObject().lastName"
     required
+    #lastName="ngModel"
   >
-  <br>
+  <div *ngIf="(lastName.touched && lastName.invalid)">
+    <small class="error-message">This field is required</small>
+  </div>
   <br>
   <label for="email-input"><b>Email:<sup>*</sup></b></label>
   <br>
@@ -35,8 +44,15 @@
     style="width: 70%;"
     name="email"
     [(ngModel)]="getCurrentReservationObject().email"
-    required email>
-  <br>
+    required
+    email
+    [ngClass]="{'error-field': email.invalid && email.touched}"
+    #email="ngModel"
+  >
+  <div *ngIf="email.errors && (email.touched && email.invalid)">
+    <small class="error-message" *ngIf="email.errors?.['required']">This field is required</small>
+    <small class="error-message" *ngIf="email.errors?.['email']">This field must be a valid email address</small>
+  </div>
   <br>
   <label for="phone-no-input"><b>Phone Number:<sup>**</sup></b></label>
   <br>
@@ -47,8 +63,14 @@
     placeholder="+49 0176 0000000"
     style="width: 50%;"
     name="phone"
-    [(ngModel)]="getCurrentReservationObject().phone">
-  <br>
+    pattern="^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$"
+    [(ngModel)]="getCurrentReservationObject().phone"
+    [ngClass]="{'error-field': phone.invalid && phone.touched}"
+    #phone="ngModel"
+  >
+  <div *ngIf="phone.errors && (phone.touched && phone.invalid)">
+    <small class="error-message" *ngIf="phone.errors?.['pattern']">Please enter a valid phone number</small>
+  </div>
   <br>
   <div class="button-container">
     <button type="submit" class="form-field" [disabled]="!form_ref.valid"><b>NEXT</b></button>

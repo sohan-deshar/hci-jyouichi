@@ -10,8 +10,14 @@
     max="10"
     required
     [(ngModel)]="getCurrentReservation().numberOfGuests"
+    [ngClass]="{'error-field': numberOfGuests.errors && numberOfGuests.touched}"
+    #numberOfGuests="ngModel"
   >
   <small><i>for reservation over 10 guests please contact us directly</i></small>
+  <div *ngIf="numberOfGuests.errors && (numberOfGuests.touched && numberOfGuests.invalid)">
+    <small class="error-message" *ngIf="numberOfGuests.errors?.['required']">This field is required</small>
+    <small class="error-message" *ngIf="numberOfGuests.errors?.['min'] || numberOfGuests.errors?.['max']">The input value has to be between 1 and 10</small>
+  </div>
   <br>
   <br>
   <label for="date"><b>Choose a date:<sup>*</sup></b></label>
@@ -23,7 +29,13 @@
     class="form-field"
     required
     [(ngModel)]="getCurrentReservation().date"
+    [ngClass]="{'error-field': date.errors && date.touched}"
+    #date="ngModel"
   >
+  <div *ngIf="date.errors && (date.touched && date.invalid)">
+    <small class="error-message" *ngIf="date.errors?.['required']">This field is required</small>
+    <small class="error-message" *ngIf="date.errors?.['min']">A date in past is selected</small>
+  </div>
   <br>
   <br>
   <label for="time-select"><b>Choose a time:<sup>*</sup></b></label>
@@ -43,6 +55,7 @@
     class="form-field"
     required
     [(ngModel)]="getCurrentReservation().time"
+    #time="ngModel"
   >
     <option value="17:00">17:00</option>
     <option value="17:30">17:30</option>
@@ -55,6 +68,9 @@
     <option value="21:00">21:00</option>
   </select>
   <br>
+  <div *ngIf="(time.touched && time.invalid)">
+    <small class="error-message">This field is required</small>
+  </div>
   <br>
   <div class="button-container">
     <button class="form-field comp-color" (click)="goBack()"><b>BACK</b></button>

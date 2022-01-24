@@ -72,3 +72,15 @@ a.brand{
   background: $color-5_comp;
   color: $color-4;
 }
+
+input{
+  display: block;
+}
+
+.error-field{
+  border: 2px solid red;
+}
+
+.error-message{
+  color: red;
+}

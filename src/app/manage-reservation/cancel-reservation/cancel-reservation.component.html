@@ -16,18 +16,56 @@
   <form (ngSubmit)="onSubmit(form_ref)" #form_ref="ngForm">
     <label for="email-input"><b>Email:<sup>*</sup></b></label>
     <br>
-    <input name="email" type="text" class="form-field" id="email-input" style="width: 50%;" placeholder="testing@tester.com" ngModel required>
-    <br>
+    <input
+      name="email"
+      type="text"
+      class="form-field"
+      id="email-input"
+      style="width: 50%;"
+      placeholder="testing@tester.com"
+      ngModel
+      [ngClass]="{'error-field': email.invalid && email.touched}"
+      #email="ngModel"
+      email
+      required>
+    <div *ngIf="email.errors && (email.touched && email.invalid)">
+      <small class="error-message" *ngIf="email.errors?.['required']">This field is required</small>
+      <small class="error-message" *ngIf="email.errors?.['email']">This field must be a valid email address</small>
+    </div>
     <br>
     <label for="phone-no-input"><b>Phone Number:<sup>**</sup></b></label>
     <br>
-    <input name="phone" type="text" class="form-field" id="phone-no-input" style="width: 50%" ngModel>
-    <br>
+    <input
+      name="phone"
+      type="text"
+      class="form-field"
+      id="phone-no-input"
+      style="width: 50%"
+      ngModel
+      pattern="^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$"
+      [ngClass]="{'error-field': phone.invalid && phone.touched}"
+      #phone="ngModel"
+    >
+    <div *ngIf="phone.errors && (phone.touched && phone.invalid)">
+      <small class="error-message" *ngIf="phone.errors?.['pattern']">Please enter a valid phone number</small>
+    </div>
     <br>
     <label for="reser-token"><b>Reservation Token:<sup>*</sup></b></label>
     <br>
-    <input name="token" type="text" class="form-field" id="reser-token" style="width: 80%" placeholder="Cxz1oOQd74PpXMMEGr7l" ngModel required>
-    <br>
+    <input
+      name="token"
+      type="text"
+      class="form-field"
+      id="reser-token"
+      style="width: 80%"
+      placeholder="Cxz1oOQd74PpXMMEGr7l"
+      ngModel
+      #token="ngModel"
+      [ngClass]="{'error-field': token.invalid && token.touched}"
+      required>
+    <div *ngIf="(token.touched && token.invalid)">
+      <small class="error-message">This field is required</small>
+    </div>
     <br>
     <div class="button-container">
       <button type="submit" class="form-field" [disabled]="!form_ref.valid">REQUEST CANCELLATION</button>
