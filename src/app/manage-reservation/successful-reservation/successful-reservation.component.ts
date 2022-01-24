@@ -25,6 +25,10 @@ export class SuccessfulReservationComponent implements OnInit, AfterViewInit {
 
   }
 
+  ngOnDestroy(): void {
+    this.currentReservation.entry = new ReservationEntryObject();
+  }
+
   ngAfterViewInit(): void {
     let canvas = this.renderer.createElement('canvas');
     this.qrcode.toCanvas(

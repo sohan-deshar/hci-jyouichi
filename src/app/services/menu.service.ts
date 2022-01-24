@@ -18,7 +18,7 @@ export class MenuService {
       this.drinks = this.menu.filter(item => item.type === 'drink');
       this.desserts = this.menu.filter(item => item.type === 'dessert');
       this.dishes = this.menu.filter(item => item.type === 'main');
-      console.log(data);
+      // console.log(data);
     });
 
   }

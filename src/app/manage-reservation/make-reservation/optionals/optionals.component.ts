@@ -40,7 +40,6 @@ export class OptionalsComponent implements OnInit {
 
     this.openOverViewDialog();
 
-    console.log(this.currentReservation.entry);
   }
 
   openMenuDialog() {
@@ -55,11 +54,9 @@ export class OptionalsComponent implements OnInit {
     const dialogRef = this.dialog.open(MenuComponent, config);
 
     // dialogRef.afterClosed().subscribe(result => {
-    //   console.log(result);
     //   for(let item of result) {
     //     this.currentReservation.entry.seat.push(item);
     //   }
-    //   console.log(this.currentReservation);
     // });
   }
 
@@ -80,7 +77,6 @@ export class OptionalsComponent implements OnInit {
       //   this.currentReservation.entry.seat.push(item);
       // }
       // console.log(this.currentReservation);
-      console.log(this.currentReservation)
     });
   }
 

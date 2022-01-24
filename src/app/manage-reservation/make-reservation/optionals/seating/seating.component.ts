@@ -43,22 +43,17 @@ export class SeatingComponent implements OnInit, AfterViewInit {
         }
       }
     }
-    console.log(this.selectedList);
-    console.log("Constructor called");
+    // console.log(this.selectedList);
   }
 
   ngOnInit(): void {
-    console.log("OnInit called");
   }
 
   ngOnDestroy(): void {
-    console.log("OnDestroy called");
     this.currentReservation.entry.seat = [...this.selectedList];
-    console.log(this.currentReservation.entry.seat);
   }
 
   ngAfterViewInit() {
-    console.log("AfterViewInit called");
     const tables = this.map.nativeElement.childNodes;
     tables.forEach((table: HTMLAreaElement) => {
       this.createDiv(table)
@@ -85,7 +80,6 @@ export class SeatingComponent implements OnInit, AfterViewInit {
     }
 
     if(this.selectedList.includes(area.title)) {
-      console.log(`${area.title} is already selected so adding the selected class`);
       this.renderer.addClass(div,"selected");
     }
     // console.log(div);
@@ -103,15 +97,12 @@ export class SeatingComponent implements OnInit, AfterViewInit {
     tables.forEach((table: HTMLAreaElement) => {
       if(table.classList.contains('selected')) {
         this.selectedList.push(table.id);
-        console.log(table.id);
       }
     })
-    console.log(this.selectedList);
     this.dialogRef.close(this.selectedList);
   }
 
   markIfSeatSelected(event: MouseEvent) {
-    console.log(event);
     let target = <HTMLElement> event.target;
     if(target.classList.contains('table') && !target.classList.contains('unavailable')) {
       if(target.classList.contains('selected')) {

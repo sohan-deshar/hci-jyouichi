@@ -66,3 +66,12 @@ body{
 }
 
 
+.snackbar-success {
+  background-color: $color-5-comp;
+  color: $color-1;
+}
+
+.snackbar-error{
+  background-color: $color-5;
+  color: $color-1;
+}

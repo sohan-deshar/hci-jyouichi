@@ -26,8 +26,8 @@ export class MenuComponent implements OnInit {
   }
 
   onSubmit(form_ref: NgForm) {
-    console.log("This is from within the menu component");
-    console.log(form_ref.value);
+    // console.log("This is from within the menu component");
+    // console.log(form_ref.value);
     this.dialogRef.close(form_ref.value);
   }
 
@@ -36,7 +36,7 @@ export class MenuComponent implements OnInit {
   }
 
   onSave() {
-    console.log(this.currentReservation.entry);
+    // console.log(this.currentReservation.entry);
     this.dialogRef.close();
   }
 
