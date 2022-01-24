@@ -1,7 +1,2 @@
-div.confirmation-message{
-  border: 1px solid black;
-  border-radius: 1em;
-  padding: 1em;
-  margin: 1em 0;
-  background-color: lightgrey;
-}
+@import 'src/shared/_confirmation-message.scss';
+@import 'src/shared/_reservation-forms.scss';

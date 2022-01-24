@@ -7,7 +7,7 @@
   <h2 class="bold">drinks</h2>
   <hr>
   <div class="menu-container">
-    <div *ngFor="let item of this.menuService.drinks; let i = index">
+    <div *ngFor="let item of menuService.drinks; let i = index">
       <app-menu-box [data]="item"></app-menu-box>
     </div>
   </div>
@@ -26,10 +26,10 @@
   <br>
 
   <hr>
-  <h2 class="bold">deserts</h2>
+  <h2 class="bold">desserts</h2>
   <hr>
   <div class="menu-container">
-    <div *ngFor="let item of this.menuService.deserts; let i = index">
+    <div *ngFor="let item of this.menuService.desserts; let i = index">
       <app-menu-box [data]="item"></app-menu-box>
     </div>
   </div>

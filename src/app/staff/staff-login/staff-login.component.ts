@@ -12,7 +12,11 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 export class StaffLoginComponent implements OnInit {
 
   form?: NgForm;
-  constructor(private authService: AuthService, private router: Router, private _snackBar: MatSnackBar) { }
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private _snackBar: MatSnackBar
+  ) { }
 
   ngOnInit(): void {
   }
@@ -23,10 +27,14 @@ export class StaffLoginComponent implements OnInit {
     this.authService.validateData(this.form.value);
     if(this.authService.isValidated){
       this.router.navigate(['staff']);
-      this._snackBar.open(`Logged in as ${this.form.value.username}`, '', {
-        duration: 3000,
-        verticalPosition: 'top',
-      });
+      this._snackBar
+        .open(
+          `Logged in as ${this.form.value.username}`
+          , '',
+          {
+            duration: 3000,
+            verticalPosition: 'top',
+          });
     }
   }
 

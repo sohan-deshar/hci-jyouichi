@@ -1,111 +1,143 @@
-{
-    "drinks": [
+[
         {
+            "menuId": "oj1",
+            "type": "drink",
             "name": "Orange Juice",
             "price": "3.99",
             "source": "/assets/data/Menu/resources/Orange.jpeg"
         },
         {
-            "name": "Banana Juice",
+          "menuId": "bj1",
+          "type": "drink",
+          "name": "Banana Juice",
             "price": "4.99",
             "source": "/assets/data/Menu/resources/Banana.jpg"
         },
         {
-            "name": "Lemonade",
+          "menuId": "lemo1",
+          "type": "drink",
+          "name": "Lemonade",
             "price": "3.99",
             "source": "/assets/data/Menu/resources/Lemonade.jpg"
         },
         {
-            "name": "Milk Shake",
+          "menuId": "ms1",
+          "type": "drink",
+          "name": "Milk Shake",
             "price": "4.99",
             "source": "/assets/data/Menu/resources/Milkshake.jpg"
         },
         {
-            "name": "Strawberry Juice",
-            "price": "3.49",
+          "menuId": "sj1",
+          "name": "Strawberry Juice",
+          "type": "drink",
+          "price": "3.49",
             "source": "/assets/data/Menu/resources/Strawberry.jpg"
         },
         {
-            "name": "Beer",
+          "menuId": "beer1",
+          "type": "drink",
+          "name": "Beer",
             "price": "5.99",
             "source": "/assets/data/Menu/resources/Beer_1.jpg"
         },
         {
-            "name": "Beer (Alcohol free)",
+          "menuId": "beer1AlkoholFree",
+          "type": "drink",
+          "name": "Beer (Alcohol free)",
             "price": "5.49",
             "source": "/assets/data/Menu/resources/Beer_2.jpg"
-        }
-    ],
-    "main_dishes": [
+        },
         {
-            "name": "Pizza",
+          "menuId": "pizza1",
+          "type": "main",
+          "name": "Pizza",
             "price": "7.50",
             "source": "/assets/data/Menu/resources/Pizza.jpg",
             "desc": "Unpacked reserved sir offering bed judgment may and quitting speaking. Is do be improved raptures offering required in replying raillery."
         },
         {
+          "menuId": "pasta1",
+          "type": "main",
             "name": "Pasta",
             "price": "6.89",
             "source": "/assets/data/Menu/resources/Pasta.jpg",
             "desc": "Unpacked reserved sir offering bed judgment may and quitting speaking. Is do be improved raptures offering required in replying raillery."
         },
         {
+          "menuId": "burger1",
+          "type": "main",
             "name": "Double Cheese Burger",
             "price": "4.50",
             "source": "/assets/data/Menu/resources/Burger.jpg",
             "desc": "Unpacked reserved sir offering bed judgment may and quitting speaking. Is do be improved raptures offering required in replying raillery."
         },
         {
+          "menuId": "fry1",
+          "type": "main",
             "name": "Fries",
             "price": "2.99",
             "source": "/assets/data/Menu/resources/Fries.jpg",
             "desc": "Unpacked reserved sir offering bed judgment may and quitting speaking. Is do be improved raptures offering required in replying raillery."
         },
         {
+          "menuId": "salad1",
+          "type": "main",
             "name": "Salad",
             "price": "3.89",
             "source": "/assets/data/Menu/resources/Salad.jpg",
             "desc": "Unpacked reserved sir offering bed judgment may and quitting speaking. Is do be improved raptures offering required in replying raillery."
         },
         {
+          "menuId": "masubhat1",
+          "type": "main",
             "name": "Rise with chicken (Indian speicalty)",
             "price": "9.89",
             "source": "/assets/data/Menu/resources/Indian_specialty.jpg",
             "desc": "Unpacked reserved sir offering bed judgment may and quitting speaking. Is do be improved raptures offering required in replying raillery."
         },
         {
+          "menuId": "japanesemasubhat1",
+          "type": "main",
             "name": "Sushi",
             "price": "6.50",
             "source": "/assets/data/Menu/resources/Sushi.jpg",
             "desc": "Unpacked reserved sir offering bed judgment may and quitting speaking. Is do be improved raptures offering required in replying raillery."
         },
         {
+          "menuId": "veganmasu1",
+          "type": "main",
             "name": "Vegan Special dish",
             "price": "7.49",
             "source": "/assets/data/Menu/resources/Vegan.jpg",
             "desc": "Unpacked reserved sir offering bed judgment may and quitting speaking. Is do be improved raptures offering required in replying raillery."
-        }
-    ],
-    "deserts": [
+        },
         {
+          "menuId": "youscream",
+          "type": "dessert",
             "name": "ice cream vanilla",
             "price": "5.33",
             "source": "/assets/data/Menu/resources/Ice_cream_vanilla.jpg"
         },
         {
+          "menuId": "chocopudding",
+          "type": "dessert",
             "name": "choco pudding",
             "price": "6.96",
             "source": "/assets/data/Menu/resources/Choco_pudding.jpg"
         },
         {
+          "menuId": "chococake",
+          "type": "dessert",
             "name": "choco cake",
             "price": "4.77",
             "source": "/assets/data/Menu/resources/Chococake.jpg"
         },
         {
+          "menuId": "creamcake",
+          "type": "dessert",
             "name": "cream cake",
             "price": "4.76",
             "source": "/assets/data/Menu/resources/Cream_cake.jpg"
         }
-    ]
-}
+]

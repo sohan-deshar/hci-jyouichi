@@ -1,0 +1,27 @@
+div.confirmation-message{
+  border: 1px solid lightgrey;
+  border-radius: 1em;
+  padding: 1em;
+  margin: 1em 0;
+  background-color: lightgrey;
+}
+
+ul{
+  padding: 0;
+}
+.list-item {
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+  font-size: smaller;
+  .name {
+    width: 50%;
+  }
+  .quantity {
+    width: 20%;
+    text-align: center;
+  }
+  .price {
+    width: 20%;
+  }
+}

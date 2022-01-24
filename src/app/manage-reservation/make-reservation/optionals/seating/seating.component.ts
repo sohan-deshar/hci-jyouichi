@@ -2,13 +2,14 @@ import {
   AfterViewInit,
   Component,
   ElementRef,
-  Inject,
+  Inject, Injector,
   OnInit,
   Renderer2,
   ViewChild,
   ViewEncapsulation
 } from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
+import {CurrentReservationService} from "../../../../services/current-reservation.service";
 
 @Component({
   selector: 'app-seating',
@@ -22,17 +23,34 @@ export class SeatingComponent implements OnInit, AfterViewInit {
   @ViewChild('container', {static: false}) container!: ElementRef;
 
   selectedList: string[] = [];
+  seatingFor: number = 0;
+  selectedFor: number = 0;
+  highlight = false;
+  public currentReservation: CurrentReservationService;
 
   constructor(private dialogRef: MatDialogRef<SeatingComponent>,
               private renderer: Renderer2,
-              @Inject(MAT_DIALOG_DATA) data: Inject) { }
+              @Inject(MAT_DIALOG_DATA) data: {injector: Injector}) {
+    this.currentReservation = data.injector.get(CurrentReservationService);
+    this.seatingFor = this.currentReservation.entry.numberOfGuests;
+    this.selectedList = [...this.currentReservation.entry.seat];
+    if(this.selectedList.length != 0){
+      for(const item of this.selectedList){
+        if(item.includes('big')){
+          this.selectedFor+= 4;
+        } else {
+          this.selectedFor += 2;
+        }
+      }
+    }
+    // console.log(this.selectedList);
+  }
 
   ngOnInit(): void {
-    // console.log(this.map);
+  }
 
-    // tables.forEach(table => {
-    //   this.createDiv(table)
-    // })
+  ngOnDestroy(): void {
+    this.currentReservation.entry.seat = [...this.selectedList];
   }
 
   ngAfterViewInit() {
@@ -55,35 +73,64 @@ export class SeatingComponent implements OnInit, AfterViewInit {
     // this.renderer.setStyle(div, "background-color", "red");
     this.renderer.setStyle(div, "position", "absolute");
     this.renderer.setStyle(div, "z-index", "1");
-    if(Math.random() > 0.5) {
-      console.log("unavailable added");
+
+    if(!this.checkIfSeatAvailable(area.title)) {
+      // TODO: implement proper logic for this.
       this.renderer.addClass(div,"unavailable");
+    }
+
+    if(this.selectedList.includes(area.title)) {
+      this.renderer.addClass(div,"selected");
     }
     // console.log(div);
     this.renderer.appendChild(this.container.nativeElement, div);
   }
 
-  closeDialog() {
+  checkIfSeatAvailable(id: string) {
+    return true;
+    return this.currentReservation.entry.seat.includes(id);
+
+  }
+
+  onSave() {
     const tables = this.container.nativeElement.childNodes;
     tables.forEach((table: HTMLAreaElement) => {
       if(table.classList.contains('selected')) {
         this.selectedList.push(table.id);
-        console.log(table.id);
       }
     })
-    console.log(this.selectedList);
     this.dialogRef.close(this.selectedList);
   }
 
   markIfSeatSelected(event: MouseEvent) {
-    console.log(event);
     let target = <HTMLElement> event.target;
     if(target.classList.contains('table') && !target.classList.contains('unavailable')) {
       if(target.classList.contains('selected')) {
         this.renderer.removeClass(target, "selected");
+
+        if(target.id.includes('big')) {
+          this.selectedFor -= 4;
+        } else {
+          this.selectedFor -= 2;
+        }
+
       } else {
-        this.renderer.addClass(target, "selected");
+        if(this.selectedFor < this.seatingFor) {
+          this.renderer.addClass(target, "selected");
+          if(target.id.includes('big')) {
+            this.selectedFor += 4;
+          } else { this.selectedFor += 2; }
+        } else {
+          this.highlight = true;
+          setTimeout(() => {
+            this.highlight = false;
+          }, 1000);
+        }
       }
     }
+  }
+
+  onClose() {
+    this.dialogRef.close();
   }
 }

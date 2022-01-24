@@ -1,3 +1,11 @@
+@import "src/shared/_reservation-forms.scss";
+.form-title-bar{
+  .comp-color{
+    background-color: $color-5_comp;
+    color: $color-4;
+  }
+}
+
 .menu-container{
   display: grid;
   grid-template-columns: repeat(3, 1fr);

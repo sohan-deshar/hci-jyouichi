@@ -1,8 +1,9 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {Component, Inject, Injector, OnInit} from '@angular/core';
 import {CurrentReservationService} from "../../../services/current-reservation.service";
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {ReservationDataService} from "../../../services/reservation-data.service";
 import {Router} from "@angular/router";
+import {MenuService} from "../../../services/menu.service";
 
 @Component({
   selector: 'app-reservation-overview',
@@ -10,14 +11,18 @@ import {Router} from "@angular/router";
   styleUrls: ['./reservation-overview.component.scss']
 })
 export class ReservationOverviewComponent implements OnInit {
+  public reservationDataService: ReservationDataService;
+  public currentReservation: CurrentReservationService;
+  public menuService: MenuService;
 
   constructor(
-    private reservationDataService: ReservationDataService,
-    public currentReservation: CurrentReservationService,
     private dialogRef: MatDialogRef<ReservationOverviewComponent>,
     private router: Router,
-    @Inject(MAT_DIALOG_DATA) public data: any
+    @Inject(MAT_DIALOG_DATA) public data: {injector: Injector}
   ) {
+    this.reservationDataService = this.data.injector.get(ReservationDataService);
+    this.currentReservation = this.data.injector.get(CurrentReservationService);
+    this.menuService = this.data.injector.get(MenuService);
 
   }
 
@@ -29,7 +34,9 @@ export class ReservationOverviewComponent implements OnInit {
   }
 
   createReservation() {
+    this.currentReservation.entry.token = this.currentReservation.entry.generateRandomToken();
     this.reservationDataService.addReservationEntry(this.currentReservation.entry);
+
     this.dialogRef.close();
     this.router.navigate(['/successful-reservation']);
   }

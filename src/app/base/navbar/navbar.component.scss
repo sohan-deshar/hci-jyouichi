@@ -1,5 +1,6 @@
+@import "src/shared/_variables";
 .container{
-  background: grey;
+  background: $color-4;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -17,7 +18,13 @@
         margin: 0.5em 0.5em;
         border-radius: 0.5em;
         &:hover{
-          background: rgba(211, 211, 211, 0.562);
+          background: $color-2;
+          color: $color-4;
+        }
+        &.activeLink{
+          background-color: $color-2;
+          color: $color-4;
+
         }
       }
 
@@ -33,7 +40,4 @@
     background-color: rgba(211, 211, 211, 0.562);
     border-radius: 0.4em;
   }
-}
-.activeLink{
-  background: rgba(211, 211, 211, 0.562);
 }

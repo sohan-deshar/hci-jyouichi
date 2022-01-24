@@ -5,8 +5,9 @@
 <!--  <button type="submit">Click to submit and close</button>-->
 <!--</form>-->
 <div class="form-title-bar">
-  <h2 class="bold">our menus</h2>
-  <a class="closebackbutton" (click)="closeDialog()">Save</a>
+  <a class="closebackbutton normal comp-color" (click)="onClose()">CLOSE</a>
+  <h1 class="bold">our menus</h1>
+    <a class="closebackbutton normal" (click)="onSave()">SAVE</a>
 </div>
 <br>
 <div class="content-wrapper">
@@ -15,7 +16,10 @@
   <hr>
   <div class="menu-container">
     <div *ngFor="let item of this.menuService.drinks; let i = index">
-      <app-menu-item [data]="item"></app-menu-item>
+      <app-menu-item
+        [data]="item"
+        [quantity]="currentReservation.entry.getOrderQuantityByMenuId(item.menuId)"
+      ></app-menu-item>
     </div>
   </div>
   <br>
@@ -26,18 +30,24 @@
   <hr>
   <div class="menu-container">
     <div *ngFor="let item of this.menuService.dishes; let i = index">
-      <app-menu-item [data]="item"></app-menu-item>
+      <app-menu-item
+        [data]="item"
+        [quantity]="currentReservation.entry.getOrderQuantityByMenuId(item.menuId)"
+      ></app-menu-item>
     </div>
   </div>
   <br>
   <br>
 
   <hr>
-  <h2 class="bold">deserts</h2>
+  <h2 class="bold">desserts</h2>
   <hr>
   <div class="menu-container">
-    <div *ngFor="let item of this.menuService.deserts; let i = index">
-      <app-menu-item [data]="item"></app-menu-item>
+    <div *ngFor="let item of this.menuService.desserts; let i = index">
+      <app-menu-item
+        [data]="item"
+        [quantity]="currentReservation.entry.getOrderQuantityByMenuId(item.menuId)"
+      ></app-menu-item>
     </div>
   </div>
   <hr>

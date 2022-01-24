@@ -14,10 +14,10 @@ export class ReservationDataService {
   constructor(private http: HttpClient) {
     this.data = [];
     this.data$ = new BehaviorSubject<ReservationEntry[]>([]);
-    this.saveReservationDataLocally();
+    this.getReservationDataFromFile();
   }
 
-  saveReservationDataLocally(){
+  getReservationDataFromFile(){
     this.http.get<ReservationEntry[]>("./assets/data/reservation-data.json").subscribe(data =>{
 
         this.data = data;
@@ -30,14 +30,37 @@ export class ReservationDataService {
     return of(this.data);
   }
 
-  addReservationEntry(entry: ReservationEntry): void{
-    this.http.post('./assets/data/reservation-data.json', entry).subscribe(data => {
-      this.data.push(entry);
-    });
+  getReservationByReservationToken(reservationToken: string): ReservationEntry | null{
+    console.log("searching for ",reservationToken);
+    for(let i = 0; i < this.data.length; i++){
+      console.log(this.data[i].token);
+      if(this.data[i].token === reservationToken){
+        console.log("found reservation");
+        return this.data[i];
+      }
+    }
+    console.log(this.data.find(reservation => reservation.token === reservationToken));
+    if(this.data.find(reservation => reservation.token === reservationToken))
+      return this.data.filter(reservation => reservation.token === reservationToken)[0];
+    else
+      return null;
   }
 
-  removeReservationEntry(entryToken: string): void{
-    this.data.splice(this.data.findIndex(f => f.token == entryToken), 1);
-    this.data$.next(this.data);
+  addReservationEntry(entry: ReservationEntry): void{
+    this.data.push(entry);
+    // console.log(this.data);
+  }
+
+  removeReservationEntry(entryToken: string): ReservationEntry | null{
+    let res = this.getReservationByReservationToken(entryToken);
+    if(res != null){
+      this.data.splice(this.data.findIndex(f => f.token == entryToken), 1);
+      this.data$.next(this.data);
+      console.log(`${entryToken} removed`);
+      console.log(this.data);
+      return res;
+    } else {
+      return null;
+    }
   }
 }

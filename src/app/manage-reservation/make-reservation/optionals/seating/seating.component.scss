@@ -1,3 +1,10 @@
+@import "src/shared/_reservation-forms.scss";
+.form-title-bar{
+  .comp-color{
+    background-color: $color-5_comp;
+    color: $color-4;
+  }
+}
 .image-container{
   position: relative;
   img{
@@ -23,4 +30,8 @@ div.unavailable{
 div.selected{
   background-color: rgb(85, 252, 32);
   transition: background-color 0.2s;
+}
+
+.highlight{
+  background-color: rgb(85, 252, 32);
 }

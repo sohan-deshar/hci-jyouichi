@@ -11,9 +11,9 @@
   <div class="confirmation-message">
     <h3>Reservation Confirmation</h3>
     <hr>
-    <p>Dear Customer, <br>
-      A reservation under following person has been successfully made:<br>
-      <b>Name:&emsp;</b>{{this.currentReservation.entry.name}}<br>
+    <div>Dear Customer, <br>
+      Following Reservation has been successfully made:<br>
+      <b>Name:&emsp;</b>{{this.currentReservation.entry.lastName + ' ' + this.currentReservation.entry.firstName}}<br>
       <b>Email:&emsp;</b>{{this.currentReservation.entry.email}}<br>
       <b>Phone:&emsp;</b>{{this.currentReservation.entry.phone}}<br>
       <b>Date:&emsp;</b>{{this.currentReservation.entry.date}}<br>
@@ -21,9 +21,34 @@
       <b>Number of Guests:&emsp;</b>{{this.currentReservation.entry.numberOfGuests}} guests<br>
       <b>Reservation Token:&emsp;</b>{{this.currentReservation.entry.token}}<br>
       <br>
+      <span *ngIf="currentReservation.entry.preOrders.length != 0">
+        <ul>
+          <b>Pre-Orders:&emsp;</b>
+          <li *ngFor="let item of currentReservation.preOrderDetails" class="list-item">
+            <span class="name">{{item.title}}</span>|
+            <span class="quantity">{{item.quantity}}</span>|
+            <span class="price">{{item.price}}&euro;</span>
+          </li>
+          <small><b>Total: {{currentReservation.orderTotal}}&euro;</b></small>
+        </ul>
+      </span>
+      <span *ngIf="currentReservation.entry.seat.length != 0">
+        <ul>
+          <b>Seating:&emsp;</b>
+          <li *ngFor="let item of currentReservation.entry.seat" class="list-item">
+            <span class="name">{{item.toUpperCase()}}</span>
+          </li>
+        </ul>
+      </span>
+     <span #qrcontainer>
+     </span>
+      <br>
+      <i>Show the above QR-Code at the reception and we will help you out.</i>
+      <br>
+      <br>
       Kind regards,<br>
       <b>HCI_Jüichi</b>
-    </p>
+    </div>
   </div>
   <div>
     NOTE:<hr>

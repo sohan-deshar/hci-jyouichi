@@ -6,11 +6,11 @@
 
   <p>Please type in your feedback and click "Send":</p>
   <form class="form">
-    <p>Choose your subject:</p>
+    <h3>Choose your subject:</h3>
     <div class="subject-buttons-container">
       <button
         id="foodButton"
-        class="radio-button"
+        class="radio-button form-field comp-color normal"
         (click)="selectSubject('food')"
         [ngClass]="{radioButtonSelected: currentSubject === 'food'}"
       >
@@ -18,7 +18,7 @@
       </button>
       <button
         id="serviceButton"
-        class="radio-button"
+        class="radio-button form-field comp-color normal"
         (click)="selectSubject('service')"
         [ngClass]="{radioButtonSelected: currentSubject === 'service'}"
       >
@@ -26,7 +26,7 @@
       </button>
       <button
         id="websiteButton"
-        class="radio-button"
+        class="radio-button form-field comp-color normal"
         (click)="selectSubject('website')"
         [ngClass]="{radioButtonSelected: currentSubject === 'website'}"
       >
@@ -35,7 +35,7 @@
 
       <button
         id="otherButton"
-        class="radio-button"
+        class="radio-button form-field comp-color normal"
         (click)="selectSubject('other')"
         [ngClass]="{radioButtonSelected: currentSubject === 'other'}"
 
@@ -43,9 +43,8 @@
         Other
       </button>
     </div>
-    <br>
     <div>
-      <p>Rate the subject</p>
+      <h3>Rate the subject</h3>
       <div>
         <img
           [src]="source[0]"
@@ -74,13 +73,10 @@
         >
       </div>
     </div>
-    <br >
-    <br >
-    <br >
-    <label for="feedback-content">Your Feedback: </label>
-    <br >
+    <label for="feedback-content"><h2> Your Feedback: </h2></label>
     <textarea
       id="feedback-content"
+      class="form-field"
       oninput="textChange()"
       placeholder="In my opinion..."
     ></textarea>
@@ -91,6 +87,8 @@
     </div>
 
     <br>
-    <a (click)="sendFeedBack()" class="send-button"> Send</a>
+    <div class="button-container">
+      <button (click)="sendFeedBack()" class="form-field normal"> <b>SEND</b></button>
+    </div>
   </form>
 </div>

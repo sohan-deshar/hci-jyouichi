@@ -12,15 +12,34 @@
   </div>
   <div class="confirmation-message">
     <hr>
-    <p>Dear Customer, <br>
+    <div>Dear Customer, <br>
       Following Reservation is going to be made. <br>
-      <b>Name:&emsp;</b>{{this.currentReservation.entry.name}}<br>
+      <b>Name:&emsp;</b>{{this.currentReservation.entry.firstName + " " + this.currentReservation.entry.lastName}}<br>
       <b>Email:&emsp;</b>{{this.currentReservation.entry.email}}<br>
       <b>Phone:&emsp;</b>{{this.currentReservation.entry.phone}}<br>
       <b>Date:&emsp;</b>{{this.currentReservation.entry.date}}<br>
       <b>Time:&emsp;</b>{{this.currentReservation.entry.time}}<br>
       <b>Number of Guests:&emsp;</b>{{this.currentReservation.entry.numberOfGuests}} guests<br>
-    </p>
+      <span *ngIf="currentReservation.entry.preOrders.length != 0">
+        <ul>
+          <b>Pre-Orders:&emsp;</b>
+          <li *ngFor="let item of currentReservation.preOrderDetails" class="list-item">
+            <span class="name">{{item.title}}</span>|
+            <span class="quantity">{{item.quantity}}</span>|
+            <span class="price">@{{item.price}}&euro;</span>
+          </li>
+          <small><b>Total: {{currentReservation.orderTotal}}&euro;</b></small>
+        </ul>
+      </span>
+      <span *ngIf="currentReservation.entry.seat.length != 0">
+        <ul>
+        <b>Seating:&emsp;</b>
+          <li *ngFor="let item of currentReservation.entry.seat" class="list-item">
+            <span class="name">{{item.toUpperCase()}}</span>
+          </li>
+        </ul>
+      </span>
+    </div>
     <hr>
   </div>
   <button class="form-field" (click)="createReservation()">CONFIRM</button>
