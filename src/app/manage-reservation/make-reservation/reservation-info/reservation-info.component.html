@@ -29,14 +29,14 @@
     class="form-field"
     required
     [(ngModel)]="getCurrentReservation().date"
-    [ngClass]="{'error-field': date.errors && date.touched}"
+    [ngClass]="{'error-field': invalidDate || (date.touched && date.invalid)}"
     #date="ngModel"
+    (change)="checkDate(date)"
   >
-  <div *ngIf="date.errors && (date.touched && date.invalid)">
+  <div *ngIf="(date.touched && invalidDate)">
     <small class="error-message" *ngIf="date.errors?.['required']">This field is required</small>
-    <small class="error-message" *ngIf="date.errors?.['min']">A date in past is selected</small>
+    <small class="error-message" *ngIf="invalidDate">A date in past is selected</small>
   </div>
-  <br>
   <br>
   <label for="time-select"><b>Choose a time:<sup>*</sup></b></label>
   <br>
@@ -74,7 +74,7 @@
   <br>
   <div class="button-container">
     <button class="form-field comp-color" (click)="goBack()"><b>BACK</b></button>
-    <button type="submit" class="form-field" [disabled]="!form_ref.valid"><b>NEXT</b></button>
+    <button type="submit" class="form-field" [disabled]="!form_ref.valid || invalidDate"><b>NEXT</b></button>
   </div>
   <p>
     *  : required field
