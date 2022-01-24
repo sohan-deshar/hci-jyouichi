@@ -12,7 +12,7 @@
     <h3>Reservation Confirmation</h3>
     <hr>
     <div>Dear Customer, <br>
-      A reservation under following person has been successfully made:<br>
+      Following Reservation has been successfully made:<br>
       <b>Name:&emsp;</b>{{this.currentReservation.entry.lastName + ' ' + this.currentReservation.entry.firstName}}<br>
       <b>Email:&emsp;</b>{{this.currentReservation.entry.email}}<br>
       <b>Phone:&emsp;</b>{{this.currentReservation.entry.phone}}<br>
@@ -24,10 +24,12 @@
       <span *ngIf="currentReservation.entry.preOrders.length != 0">
         <ul>
           <b>Pre-Orders:&emsp;</b>
-          <li *ngFor="let item of currentReservation.entry.preOrders" class="list-item">
-            <span class="name">{{menuService.getMenuNameByMenuId(item.menuId)}}</span>
-            <span class="quantity">{{item.quantity}}</span>
+          <li *ngFor="let item of currentReservation.preOrderDetails" class="list-item">
+            <span class="name">{{item.title}}</span>|
+            <span class="quantity">{{item.quantity}}</span>|
+            <span class="price">{{item.price}}&euro;</span>
           </li>
+          <small><b>Total: {{currentReservation.orderTotal}}&euro;</b></small>
         </ul>
       </span>
       <span *ngIf="currentReservation.entry.seat.length != 0">

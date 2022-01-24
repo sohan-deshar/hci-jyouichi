@@ -81,6 +81,9 @@ export class OptionalsComponent implements OnInit {
   }
 
   private openOverViewDialog() {
+    if(this.currentReservation.entry.preOrders.length > 0) {
+      this.currentReservation.calculatePreorderDetails();
+    }
     let config = new MatDialogConfig();
     config.disableClose = true;
     config.width = '1100px';

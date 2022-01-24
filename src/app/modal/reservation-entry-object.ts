@@ -1,5 +1,6 @@
 import {ReservationEntry} from "./reservation-entry";
 import {Order} from "./order";
+import {MenuItem} from "./menu-item";
 
 const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 
@@ -60,6 +61,7 @@ export class ReservationEntryObject implements ReservationEntry{
     }
     this._preOrders.push(order);
   }
+
 
   get firstName(): string {
     return this._firstName;

@@ -10,8 +10,18 @@ ul{
   padding: 0;
 }
 .list-item {
-  width: 80%;
+  width: 60%;
   display: flex;
   justify-content: space-between;
   font-size: smaller;
+  .name {
+    width: 50%;
+  }
+  .quantity {
+    width: 20%;
+    text-align: center;
+  }
+  .price {
+    width: 20%;
+  }
 }

@@ -22,11 +22,13 @@
       <b>Number of Guests:&emsp;</b>{{this.currentReservation.entry.numberOfGuests}} guests<br>
       <span *ngIf="currentReservation.entry.preOrders.length != 0">
         <ul>
-        <b>Pre-Orders:&emsp;</b>
-          <li *ngFor="let item of currentReservation.entry.preOrders" class="list-item">
-            <span class="name">{{menuService.getMenuNameByMenuId(item.menuId)}}</span>
-            <span class="quantity">{{item.quantity}}</span>
+          <b>Pre-Orders:&emsp;</b>
+          <li *ngFor="let item of currentReservation.preOrderDetails" class="list-item">
+            <span class="name">{{item.title}}</span>|
+            <span class="quantity">{{item.quantity}}</span>|
+            <span class="price">@{{item.price}}&euro;</span>
           </li>
+          <small><b>Total: {{currentReservation.orderTotal}}&euro;</b></small>
         </ul>
       </span>
       <span *ngIf="currentReservation.entry.seat.length != 0">

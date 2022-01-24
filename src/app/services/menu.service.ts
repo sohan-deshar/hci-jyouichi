@@ -26,4 +26,12 @@ export class MenuService {
   getMenuNameByMenuId(menuId: string): string {
     return this.menu.filter(item => item.menuId === menuId)[0].name;
   }
+
+  getMenuPriceByMenuId(menuId: string): number {
+    return this.menu.filter(item => item.menuId === menuId)[0].price;
+  }
+
+  getMenuByMenuId(menuId: string) {
+    return this.menu.filter(item => item.menuId === menuId)[0];
+  }
 }

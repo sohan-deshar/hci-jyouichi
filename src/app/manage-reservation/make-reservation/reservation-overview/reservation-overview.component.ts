@@ -36,6 +36,7 @@ export class ReservationOverviewComponent implements OnInit {
   createReservation() {
     this.currentReservation.entry.token = this.currentReservation.entry.generateRandomToken();
     this.reservationDataService.addReservationEntry(this.currentReservation.entry);
+
     this.dialogRef.close();
     this.router.navigate(['/successful-reservation']);
   }
