@@ -1,5 +1,5 @@
 @import "src/shared/_reservation-forms.scss";
-div.sub-bar{
+div.sub-bar {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -7,22 +7,22 @@ div.sub-bar{
   /* padding: 0.5em; */
   border-radius: 1em;
   margin-top: 1em;
+  border: solid gray 1px;
 
-  a{
+  a {
     text-decoration: none;
     color: $color-4;
     font-weight: bold;
     padding: 0.5em;
     width: 50%;
-
+    text-align: center;
   }
 
-  a.current-sub-bar-a{
+  a.current-sub-bar-a {
     background-color: $color-3;
     color: $color-1;
     margin: 0.5em;
     border: 1px solid rgb(167, 167, 167);
     border-radius: 0.5em;
-
   }
 }

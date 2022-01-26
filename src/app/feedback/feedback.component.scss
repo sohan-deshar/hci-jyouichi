@@ -1,11 +1,9 @@
 @import "src/shared/_reservation-forms.scss";
 
-
 textarea {
   resize: none;
   width: 90%;
   font-size: 14pt;
-  font-family: sans-serif;
   height: 25vh;
 }
 
@@ -53,8 +51,8 @@ textarea {
   max-height: 32px;
 }
 
-.form{
-  h2 h3{
+.form {
+  h2 h3 {
     margin-bottom: 0;
   }
 }

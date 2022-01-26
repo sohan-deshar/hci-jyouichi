@@ -1,17 +1,16 @@
-@import 'src/shared/_reservation-forms.scss';
-.menu-container{
+@import "src/shared/_reservation-forms.scss";
+.menu-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 2rem;
   grid-auto-rows: auto;
-
 }
 
-.content-wrapper{
+.content-wrapper {
   width: 80%;
   margin: 0 auto;
 
-  & > h2{
+  & > h2 {
     margin: 0;
   }
 }
