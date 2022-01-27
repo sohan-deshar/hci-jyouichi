@@ -33,5 +33,37 @@ div.selected{
 }
 
 .highlight{
-  background-color: rgb(85, 252, 32);
+  background-color: $color-5;
+  color: $color-1;
+  padding: 1em;
+  border-radius: 0.5em;
+  font-weight: bolder;
+  border: 2px solid red;
 }
+
+div.index {
+  font: $roboto;
+  div.unavailable{
+    width: 1em;
+    height: 1em;
+    display: inline;
+    background-color: rgba(255, 0, 0, 0.3);
+  }
+
+  div.available{
+    width: 1em;
+    height: 1em;
+    display: inline;
+    background-color: rgba(0, 128, 0, 0.15);
+  }
+
+  div.reserved{
+    width: 1em;
+    height: 1em;
+    display: inline;
+    background-color: rgb(85, 252, 32);
+  }
+
+
+}
+

@@ -3,7 +3,27 @@
   <h1 class="bold">our menus</h1>
   <a class="closebackbutton normal" (click)="onSave()">SAVE</a>
 </div>
-<h2 class="normal" [ngClass]="{'highlight': highlight}">You are selecting for {{seatingFor}} guests</h2>
+<div class="normal" >
+  <span [ngClass]="{'highlight': highlight}"> You are selecting for {{seatingFor}} guests</span>
+</div>
+<div class="index">
+  <h3>Index</h3>
+  <div class="available">
+    &nbsp;&nbsp;&nbsp;
+  </div>
+  : Reservable seats
+  <br>
+  <div class="unavailable">
+    &nbsp;&nbsp;&nbsp;
+  </div>
+  : Unavailable seats
+  <br>
+  <div class="reserved">
+    &nbsp;&nbsp;&nbsp;
+  </div>
+  : Reserved seats
+  <br>
+</div>
 <div class="image-container" #container (click)="markIfSeatSelected($event)">
   <img src="/assets/imgs/restaurant1000px.png" usemap="#image-map" >
 </div>
