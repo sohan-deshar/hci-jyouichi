@@ -7,7 +7,6 @@ import {CurrentReservationService} from "../../../services/current-reservation.s
 import {Router} from "@angular/router";
 import {Order} from "../../../modal/order";
 import {ReservationOverviewComponent} from "../reservation-overview/reservation-overview.component";
-import {ReservationDataService} from "../../../services/reservation-data.service";
 
 export const standardDialogConfig ={
   width: '1100px',
@@ -82,7 +81,6 @@ export class OptionalsComponent implements OnInit {
   }
 
   private openOverViewDialog() {
-    // this.reservationDataService.addReservationEntry(this.currentReservation.entry.toReservationEntry());
     if(this.currentReservation.entry.preOrders.length > 0) {
       this.currentReservation.calculatePreorderDetails();
     }

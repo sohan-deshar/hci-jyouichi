@@ -16,6 +16,7 @@ import {
 } from "./manage-reservation/successful-reservation/successful-reservation.component";
 import {FeedbackComponent} from "./feedback/feedback.component";
 import {MenuPageComponent} from "./menu-page/menu-page.component";
+import {SkipGuard} from "./services/skip.guard";
 
 const routes: Routes = [
   {path: "", component: HomeComponent, pathMatch: "full"},
@@ -23,14 +24,13 @@ const routes: Routes = [
   {path: "staff-login", component: StaffLoginComponent, pathMatch: "full"},
   {path: "make-reservation", component: MakeReservationComponent, children: [
       {path: "personal-info", component: PersonalInfoComponent},
-      {path: "reservation-info", component: ReservationInfoComponent},
-      {path: "optionals", component: OptionalsComponent},
+      {path: "reservation-info", component: ReservationInfoComponent, canActivate: [SkipGuard]},
+      {path: "optionals", component: OptionalsComponent, canActivate: [SkipGuard]},
     ]},
   {path: "cancel-reservation", component: CancelReservationComponent},
   {path: "successful-reservation", component: SuccessfulReservationComponent},
   {path: "feedback", component: FeedbackComponent},
   {path: "menu", component: MenuPageComponent}
-
 ];
 
 @NgModule({

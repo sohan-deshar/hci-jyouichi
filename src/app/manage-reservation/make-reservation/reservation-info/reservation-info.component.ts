@@ -3,6 +3,7 @@ import {NgForm, NgModel} from "@angular/forms";
 import {CurrentReservationService} from "../../../services/current-reservation.service";
 import {ReservationEntryObject} from "../../../modal/reservation-entry-object";
 import {Router} from "@angular/router";
+import {ReservationDataService} from "../../../services/reservation-data.service";
 
 @Component({
   selector: 'app-reservation-info',
@@ -15,6 +16,7 @@ export class ReservationInfoComponent implements OnInit {
   invalidDate: boolean = false;
 
   constructor(
+    private reservationDataService: ReservationDataService,
     private currentReservation: CurrentReservationService,
     private router: Router
   ) { }
@@ -31,7 +33,8 @@ export class ReservationInfoComponent implements OnInit {
     // this.currentReservation.entry.time = form.value.time;
     // this.currentReservation.entry.numberOfGuests = form.value.numberOfGuests;
 
-    console.log(this.currentReservation.entry);
+    // console.log(this.currentReservation.entry);
+    this.reservationDataService.getReservedSeatsOnDateAndTime();
     this.router.navigate(['/make-reservation/optionals']);
   }
 
@@ -51,12 +54,11 @@ export class ReservationInfoComponent implements OnInit {
   checkDate(date: NgModel) {
     let today = new Date();
     let todaysDate = new Date(today.getFullYear(), today.getMonth(), today.getDate());
-    console.log(new Date(date.value));
-    console.log(todaysDate);
     if(new Date(date.value).getTime() < todaysDate.getTime()) {
       this.invalidDate = true;
     } else {
       this.invalidDate = false;
     }
   }
+
 }

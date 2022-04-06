@@ -32,4 +32,8 @@ export class HttpService {
     return this.httpClient.get<ReservationEntry[]>(`${(this.reservationUrl)}/get-by-date/?date=${date}`);
 
   }
+
+  getSeatsReservedByDateAndTime(date: string, time: string) {
+    return this.httpClient.get<string[]>(`${(this.reservationUrl)}/reserved-seats/?date=${date}&time=${time}`);
+  }
 }

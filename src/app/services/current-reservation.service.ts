@@ -17,43 +17,46 @@ export class CurrentReservationService {
   orderTotal: number = 0;
   reservationCreated$: Subject<ReservationEntry> = new Subject<ReservationEntry>();
   //
-  // private _personalInfoFilled: boolean = false;
-  // private _reservationInfoFilled: boolean = false;
-  //
-  // checkStatus(): void{
-  //   this.checkAndEvaluateIfPersonalInfoFilled();
-  //   this.checkAndEvaluateIfReservationInfoFilled();
-  // }
-  //
-  // checkAndEvaluateIfPersonalInfoFilled(): boolean{
-  //   if(
-  //     this.entry.firstName.length != 0 &&
-  //     this.entry.lastName.length != 0 &&
-  //     this.entry.email.length != 0
-  //   ){
-  //     this._personalInfoFilled = true;
-  //     return true;
-  //   }
-  //   this._personalInfoFilled = false;
-  //   return false;
-  // }
-  //
-  // checkAndEvaluateIfReservationInfoFilled(): boolean {
-  //   if(
-  //     this.entry.date != null &&
-  //     this.entry.time != null &&
-  //     this.entry.numberOfGuests != null
-  //   ){
-  //     this._reservationInfoFilled = true;
-  //     return true;
-  //   }
-  //   this._reservationInfoFilled = false;
-  //   return false;
-  //
-  // }
+  private _personalInfoFilled: boolean = false;
+  private _reservationInfoFilled: boolean = false;
 
-  constructor(private menuService: MenuService) {
+  reservedSeats: string[] = [];
+
+  constructor(
+    private menuService: MenuService) {
     this.entry = new ReservationEntryObject();
+  }
+
+  checkStatus(): void{
+    this.checkAndEvaluateIfPersonalInfoFilled();
+    this.checkAndEvaluateIfReservationInfoFilled();
+  }
+
+  checkAndEvaluateIfPersonalInfoFilled(): boolean{
+    if(
+      this.entry.firstName.length != 0 &&
+      this.entry.lastName.length != 0 &&
+      this.entry.email.length != 0
+    ){
+      this._personalInfoFilled = true;
+      return true;
+    }
+    this._personalInfoFilled = false;
+    return false;
+  }
+
+  checkAndEvaluateIfReservationInfoFilled(): boolean {
+    if(
+      this.entry.date != null &&
+      this.entry.time != null &&
+      this.entry.numberOfGuests != null
+    ){
+      this._reservationInfoFilled = true;
+      return true;
+    }
+    this._reservationInfoFilled = false;
+    return false;
+
   }
 
 
@@ -68,13 +71,4 @@ export class CurrentReservationService {
       });
     this.orderTotal = +this.preOrderDetails.reduce((acc, curr) => acc + curr.price * curr.quantity, 0).toFixed(2);
   }
-
-
-  // get personalInfoFilled(): boolean {
-  //   return this._personalInfoFilled;
-  // }
-  //
-  // get reservationInfoFilled(): boolean {
-  //   return this._reservationInfoFilled;
-  // }
 }

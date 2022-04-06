@@ -43,7 +43,6 @@ export class SeatingComponent implements OnInit, AfterViewInit {
         }
       }
     }
-    // console.log(this.selectedList);
   }
 
   ngOnInit(): void {
@@ -82,32 +81,39 @@ export class SeatingComponent implements OnInit, AfterViewInit {
     if(this.selectedList.includes(area.title)) {
       this.renderer.addClass(div,"selected");
     }
-    // console.log(div);
     this.renderer.appendChild(this.container.nativeElement, div);
   }
 
   checkIfSeatAvailable(id: string) {
-    return true;
-    return this.currentReservation.entry.seat.includes(id);
+    console.log(id);
+    return !this.currentReservation.reservedSeats.includes(id);
 
   }
 
   onSave() {
     const tables = this.container.nativeElement.childNodes;
-    tables.forEach((table: HTMLAreaElement) => {
-      if(table.classList.contains('selected')) {
-        this.selectedList.push(table.id);
-      }
-    })
+    // tables.forEach((table: HTMLAreaElement) => {
+    //   if(table.classList.contains('selected')) {
+    //     this.selectedList.push(table.id);
+    //   }
+    // })
     this.dialogRef.close(this.selectedList);
   }
 
   markIfSeatSelected(event: MouseEvent) {
     let target = <HTMLElement> event.target;
+    // if field is a table and available
     if(target.classList.contains('table') && !target.classList.contains('unavailable')) {
-      if(target.classList.contains('selected')) {
-        this.renderer.removeClass(target, "selected");
 
+      // if the target already contains selected class
+      if(target.classList.contains('selected')) {
+
+        // removing ""selected"" class from the class list and removing the selected item from the selected list
+        this.renderer.removeClass(target, "selected");
+        this.selectedList.splice(this.selectedList.indexOf(target.id), 1);
+
+        // if the target is a big table
+        // decrementing the capacity by 4 else by 2
         if(target.id.includes('big')) {
           this.selectedFor -= 4;
         } else {
@@ -117,6 +123,7 @@ export class SeatingComponent implements OnInit, AfterViewInit {
       } else {
         if(this.selectedFor < this.seatingFor) {
           this.renderer.addClass(target, "selected");
+          this.selectedList.push(target.id);
           if(target.id.includes('big')) {
             this.selectedFor += 4;
           } else { this.selectedFor += 2; }

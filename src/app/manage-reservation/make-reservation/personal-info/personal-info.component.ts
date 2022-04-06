@@ -25,8 +25,8 @@ export class PersonalInfoComponent implements OnInit {
     this.currentReservation.entry.email = (formData.value.email);
     this.currentReservation.entry.phone = (formData.value.phone);
 
-    console.log(this.currentReservation.entry);
-    this.router.navigate(['/make-reservation/reservation-info']).then(r => console.log(r));
+    // console.log(this.currentReservation.entry);
+    this.router.navigate(['/make-reservation/reservation-info']);
   }
 
   getCurrentReservationObject(): ReservationEntryObject {
