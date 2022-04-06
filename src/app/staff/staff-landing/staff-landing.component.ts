@@ -18,7 +18,8 @@ export class StaffLandingComponent implements OnInit {
 
   setDate(date: string) {
     this.dateSelected = true;
-    this.reservationDataService.date = date;
-    this.reservationDataService.data$.next(this.reservationDataService.data);
+    this.reservationDataService.getReservationsOnDate(date);
+    // this.reservationDataService.date = date;
+    // this.reservationDataService.data$.next(this.reservationDataService.data);
   }
 }

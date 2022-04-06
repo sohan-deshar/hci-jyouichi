@@ -2,16 +2,19 @@ import { Injectable } from '@angular/core';
 import {ReservationEntry} from "../modal/reservation-entry";
 import {HttpClient} from "@angular/common/http";
 import {BehaviorSubject, Observable, of} from "rxjs";
+import {HttpService} from "./http.service";
+import {CurrentReservationService} from "./current-reservation.service";
+import {map} from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ReservationDataService {
-  date: string = "";
+  // date: string = "";
   data: ReservationEntry[];
   data$: BehaviorSubject<ReservationEntry[]>;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private httpServcie: HttpService, private currentReservationService: CurrentReservationService) {
     this.data = [];
     this.data$ = new BehaviorSubject<ReservationEntry[]>([]);
     this.getReservationDataFromFile();
@@ -46,21 +49,59 @@ export class ReservationDataService {
       return null;
   }
 
-  addReservationEntry(entry: ReservationEntry): void{
-    this.data.push(entry);
-    // console.log(this.data);
+  removeReservationEntryFromCache(entryToken: string){
+    this.data = this.data.filter(reservation => reservation.token !== entryToken);
+    this.data$.next(this.data);
   }
 
-  removeReservationEntry(entryToken: string): ReservationEntry | null{
-    let res = this.getReservationByReservationToken(entryToken);
-    if(res != null){
-      this.data.splice(this.data.findIndex(f => f.token == entryToken), 1);
-      this.data$.next(this.data);
-      console.log(`${entryToken} removed`);
-      console.log(this.data);
-      return res;
-    } else {
-      return null;
-    }
+  addReservationEntry(entry: ReservationEntry){
+    console.log("adding reservation entry: ", entry);
+    return this.httpServcie.addReservationEntry(entry).subscribe(
+      {
+        next: (data) => {
+          this.currentReservationService.entry.token = data.token;
+          this.currentReservationService.reservationCreated$.next(data);
+          console.log("data: ", data);
+        },
+        error: err => {
+          console.log("error: ", err);
+        }
+      }
+    );
+  }
+
+  removeReservationEntry(entryToken: string, email: string): Observable<ReservationEntry>{
+    return this.httpServcie.removeReservationEntry(entryToken, email)
+      .pipe(
+        map(item => {
+          console.log(item);
+          return item.reservation;
+        })
+      );
+    // let res = this.getReservationByReservationToken(entryToken);
+    // if(res != null){
+    //   this.data.splice(this.data.findIndex(f => f.token == entryToken), 1);
+    //   this.data$.next(this.data);
+    //   console.log(`${entryToken} removed`);
+    //   console.log(this.data);
+    //   return res;
+    // } else {
+    //   return null;
+    // }
+  }
+
+  getReservationsOnDate(date: string) {
+    this.httpServcie.getReservationsOnDate(date)
+      .subscribe({
+        next: data => {
+          console.log(data);
+          this.data = data;
+          this.data$.next(this.data);
+        },
+        error: err => {
+          console.log(err);
+        }
+      });
+
   }
 }

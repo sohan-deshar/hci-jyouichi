@@ -30,18 +30,21 @@ export class SuccessfulReservationComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    let canvas = this.renderer.createElement('canvas');
-    this.qrcode.toCanvas(
-      canvas,
-      JSON.stringify(this.currentReservation.entry),
-      {
-        margin: 0, width: 200, height: 200,
-        errorCorrectionLevel: 'L'
-      }
-      ,function (error: any) {
-        if (error) console.error(error)
-      });
-    this.renderer.appendChild(this.qrcontainer.nativeElement, canvas);
+    this.currentReservation.reservationCreated$.subscribe((data) => {
+      let canvas = this.renderer.createElement('canvas');
+      this.qrcode.toCanvas(
+        canvas,
+        JSON.stringify(this.currentReservation.entry.token),
+        {
+          margin: 0, width: 200, height: 200,
+          errorCorrectionLevel: 'L'
+        }
+        ,function (error: any) {
+          if (error) console.error(error)
+        });
+      this.renderer.appendChild(this.qrcontainer.nativeElement, canvas);
+    });
+
   }
 
   onClose() {

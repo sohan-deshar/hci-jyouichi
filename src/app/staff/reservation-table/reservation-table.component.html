@@ -2,47 +2,47 @@
   <table mat-table class="full-width-table" matSort aria-label="Elements">
     <!-- Token Column -->
     <ng-container matColumnDef="token">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header><h3>Token</h3></th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header="token"><h3>Token</h3></th>
       <td mat-cell *matCellDef="let row">{{row.token}}</td>
     </ng-container>
 
     <!-- Name Column -->
     <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header><h3>Name</h3></th>
-      <td mat-cell *matCellDef="let row">{{row.name}}</td>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header="name"><h3>Name</h3></th>
+      <td mat-cell *matCellDef="let row">{{row.lastName}}</td>
     </ng-container>
 
     <!-- Email Column -->
     <ng-container matColumnDef="email">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header><h3>Email</h3></th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header="email"><h3>Email</h3></th>
       <td mat-cell *matCellDef="let row">{{row.email}}</td>
     </ng-container>
 
     <!-- Phone Column -->
     <ng-container matColumnDef="phone">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header><h3>Phone</h3></th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header="phone"><h3>Phone</h3></th>
       <td mat-cell *matCellDef="let row">{{row.phone}}</td>
     </ng-container>
 
     <!-- Time Column -->
     <ng-container matColumnDef="time">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header><h3>Time</h3></th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header="time"><h3>Time</h3></th>
       <td mat-cell *matCellDef="let row">{{row.time}}</td>
     </ng-container>
 
     <!-- #Guests Column -->
     <ng-container matColumnDef="numberOfGuests">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header><h3>#Guests</h3></th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header="numberOfGuests"><h3>#Guests</h3></th>
       <td mat-cell *matCellDef="let row">{{row.numberOfGuests}}</td>
     </ng-container>
 
     <!-- #Guests Column -->
     <ng-container matColumnDef="edits">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header="edits"></th>
       <td mat-cell *matCellDef="let row" style="align-content: center">
         <img src="/assets/svgs/edit.svg" alt="" style="width: 30px; padding: 0 1em; display: none">
         <img src="/assets/svgs/delete.svg" alt="" style="width: 30px; padding: 0 1em"
-          (click)="removeReservationEntry(row.token)"
+          (click)="removeReservationEntry(row.token, row.email)"
         >
       </td>
     </ng-container>

@@ -46,10 +46,12 @@ a.brand{
 }
 
 .form-field{
+  box-sizing: border-box;
   border: 1px solid lightgrey;
   border-radius: 1em;
   padding: 0.5em;
   &:focus, &:hover{
+    box-sizing: border-box;
     border: 2px solid $color-4;
     outline: $color-5;
     z-index: 1;
@@ -78,6 +80,7 @@ input{
 }
 
 .error-field{
+  box-sizing: border-box;
   border: 2px solid red;
 }
 

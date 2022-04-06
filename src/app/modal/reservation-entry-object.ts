@@ -1,6 +1,5 @@
 import {ReservationEntry} from "./reservation-entry";
 import {Order} from "./order";
-import {MenuItem} from "./menu-item";
 
 const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 
@@ -16,7 +15,6 @@ function generateString(length: number) {
 
 export class ReservationEntryObject implements ReservationEntry{
 
-
   private _date!: string;
   private _email!: string;
   private _firstName!: string;
@@ -29,11 +27,25 @@ export class ReservationEntryObject implements ReservationEntry{
   private _time!: string;
   private _token!: string;
 
-
-
   constructor() {
     this._phone = "";
     this._specialRequests = "";
+  }
+
+  toReservationEntry(): ReservationEntry {
+    return {
+      date: this._date,
+      email: this._email,
+      firstName: this._firstName,
+      lastName: this._lastName,
+      numberOfGuests: this._numberOfGuests,
+      phone: this._phone,
+      preOrders: this._preOrders,
+      seat: this._seat,
+      specialRequests: this._specialRequests,
+      time: this._time,
+      token: this._token
+    };
   }
 
   generateRandomToken() {

@@ -1,40 +1,7 @@
 import { DataSource } from '@angular/cdk/collections';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
-import {filter, map} from 'rxjs/operators';
-import { Observable, of as observableOf, merge, BehaviorSubject } from 'rxjs';
+import { Observable } from 'rxjs';
 import {ReservationEntry} from "../../modal/reservation-entry";
 import {ReservationDataService} from "../../services/reservation-data.service";
-
-// TODO: Replace this with your own data model type
-export interface ReservationTableItem {
-  name: string;
-  id: number;
-}
-
-// TODO: replace this with real data from your application
-const EXAMPLE_DATA: ReservationTableItem[] = [
-  {id: 1, name: 'Hydrogen'},
-  {id: 2, name: 'Helium'},
-  {id: 3, name: 'Lithium'},
-  {id: 4, name: 'Beryllium'},
-  {id: 5, name: 'Boron'},
-  {id: 6, name: 'Carbon'},
-  {id: 7, name: 'Nitrogen'},
-  {id: 8, name: 'Oxygen'},
-  {id: 9, name: 'Fluorine'},
-  {id: 10, name: 'Neon'},
-  {id: 11, name: 'Sodium'},
-  {id: 12, name: 'Magnesium'},
-  {id: 13, name: 'Aluminum'},
-  {id: 14, name: 'Silicon'},
-  {id: 15, name: 'Phosphorus'},
-  {id: 16, name: 'Sulfur'},
-  {id: 17, name: 'Chlorine'},
-  {id: 18, name: 'Argon'},
-  {id: 19, name: 'Potassium'},
-  {id: 20, name: 'Calcium'},
-];
 
 /**
  * Data source for the ReservationTable view. This class should
@@ -60,7 +27,7 @@ export class ReservationTableDataSource extends DataSource<ReservationEntry> {
    */
   connect(): Observable<ReservationEntry[]> {
     // return this.reservationDataService.data$.asObservable();
-    return this.filterData();
+    return this.reservationDataService.data$.asObservable();
     // if (this.paginator && this.sort) {
     //   // Combine everything that affects the rendered data into one update
     //   // stream for the data-table to consume.
@@ -73,15 +40,15 @@ export class ReservationTableDataSource extends DataSource<ReservationEntry> {
     // }
   }
 
- filterData(): Observable<ReservationEntry[]>{
-    return this.reservationDataService.data$.pipe(
-      map(data => {
-        return data.filter(entry => {
-          return entry.date === this.reservationDataService.date;
-        });
-      })
-    );
- }
+ // filterData(): Observable<ReservationEntry[]>{
+ //    return this.reservationDataService.data$.pipe(
+ //      map(data => {
+ //        return data.filter(entry => {
+ //          return entry.date === this.reservationDataService.date;
+ //        });
+ //      })
+ //    );
+ // }
 
   //
   // filterData2(): Observable<ReservationEntry[]>{

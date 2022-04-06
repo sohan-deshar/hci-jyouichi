@@ -1,8 +1,6 @@
-import {AfterViewInit, Component, Input, ViewChild} from '@angular/core';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
+import {AfterViewInit, Component, ViewChild} from '@angular/core';
 import { MatTable } from '@angular/material/table';
-import { ReservationTableDataSource, ReservationTableItem } from './reservation-table-datasource';
+import { ReservationTableDataSource } from './reservation-table-datasource';
 import {ReservationEntry} from "../../modal/reservation-entry";
 import {ReservationDataService} from "../../services/reservation-data.service";
 
@@ -24,12 +22,21 @@ export class ReservationTableComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     // this.dataSource = new ReservationTableDataSource(this.reservationDataService, this.date);
-    console.log(this.reservationDataService.date)
+    // console.log(this.reservationDataService.date)
     this.dataSource = new ReservationTableDataSource(this.reservationDataService);
     this.table.dataSource = this.dataSource.connect();
   }
 
-  removeReservationEntry(entryToken: string){
-    this.reservationDataService.removeReservationEntry(entryToken);
+  removeReservationEntry(entryToken: string, email: string) {
+    console.log("Remove button clicked");
+    this.reservationDataService.removeReservationEntry(entryToken, email)
+      .subscribe({
+        next: data => {
+          this.reservationDataService.removeReservationEntryFromCache(entryToken);
+        },
+        error: error => {
+          console.log(error);
+        }
+      });
   }
 }

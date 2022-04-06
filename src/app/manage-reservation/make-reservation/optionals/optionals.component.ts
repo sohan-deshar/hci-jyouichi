@@ -1,4 +1,4 @@
-import {Component, Injector, OnInit, ViewContainerRef} from '@angular/core';
+import {Component, Injector, OnInit} from '@angular/core';
 import {NgForm} from "@angular/forms";
 import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
 import {MenuComponent} from "./menu/menu.component";
@@ -7,6 +7,7 @@ import {CurrentReservationService} from "../../../services/current-reservation.s
 import {Router} from "@angular/router";
 import {Order} from "../../../modal/order";
 import {ReservationOverviewComponent} from "../reservation-overview/reservation-overview.component";
+import {ReservationDataService} from "../../../services/reservation-data.service";
 
 export const standardDialogConfig ={
   width: '1100px',
@@ -29,7 +30,7 @@ export class OptionalsComponent implements OnInit {
     private dialog: MatDialog,
     private currentReservation: CurrentReservationService,
     private router: Router,
-    private injector: Injector
+    private injector: Injector,
   ) { }
 
   ngOnInit(): void {
@@ -51,7 +52,7 @@ export class OptionalsComponent implements OnInit {
       top: '50px'
     };
     config.data = {injector: this.injector};
-    const dialogRef = this.dialog.open(MenuComponent, config);
+    this.dialog.open(MenuComponent, config);
 
     // dialogRef.afterClosed().subscribe(result => {
     //   for(let item of result) {
@@ -81,6 +82,7 @@ export class OptionalsComponent implements OnInit {
   }
 
   private openOverViewDialog() {
+    // this.reservationDataService.addReservationEntry(this.currentReservation.entry.toReservationEntry());
     if(this.currentReservation.entry.preOrders.length > 0) {
       this.currentReservation.calculatePreorderDetails();
     }
@@ -91,7 +93,7 @@ export class OptionalsComponent implements OnInit {
       top: '50px'
     };
     config.data = {injector: this.injector};
-    const dialogRef = this.dialog.open(ReservationOverviewComponent, config);
+    this.dialog.open(ReservationOverviewComponent, config);
   }
 
   goBack() {

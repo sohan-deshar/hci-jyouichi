@@ -20,27 +20,32 @@ export class CancelReservationComponent implements OnInit {
 
   onSubmit(form_ref: NgForm) {
     console.log(form_ref.value);
-    let result = this.reservationDataService.removeReservationEntry(form_ref.value.token);
-    console.log(result);
-    if(result != null){
-      this._snackBar
-        .open(
-          `Reservation for ${result.lastName + " " + result.firstName} on ${result.date} at ${result.time} cancelled successfully`,
-          "", {
-          duration: 5000,
-          verticalPosition: 'top',
-            panelClass: ['snackbar-success'],
-        });
-    } else {
-      this._snackBar
-        .open(
-          `Reservation not found`,
-          "", {
-          duration: 5000,
-          verticalPosition: 'top',
-            panelClass: ['snackbar-error'],
-        });
-    }
+    this.reservationDataService.removeReservationEntry(form_ref.value.token, form_ref.value.email)
+      .subscribe({
+        next: data => {
+          console.log(data);
+          this._snackBar
+            .open(
+              `Reservation for ${data.lastName + " " + data.firstName} on ${data.date} at ${data.time} cancelled successfully`,
+              "", {
+                duration: 5000,
+                verticalPosition: 'top',
+                panelClass: ['snackbar-success'],
+              }
+              );
+        },
+        error: error => {
+          console.log(error);
+          this._snackBar
+            .open(
+              `Reservation not found`,
+              "", {
+                duration: 5000,
+                verticalPosition: 'top',
+                panelClass: ['snackbar-error'],
+              });
+        }
+      })
     form_ref.reset();
 
   }

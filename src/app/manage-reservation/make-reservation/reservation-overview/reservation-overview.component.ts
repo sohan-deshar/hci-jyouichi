@@ -22,11 +22,13 @@ export class ReservationOverviewComponent implements OnInit {
   ) {
     this.reservationDataService = this.data.injector.get(ReservationDataService);
     this.currentReservation = this.data.injector.get(CurrentReservationService);
+    console.log(this.currentReservation);
     this.menuService = this.data.injector.get(MenuService);
 
   }
 
   ngOnInit(): void {
+    console.log(this.currentReservation.entry);
   }
 
   closeDialog() {
@@ -34,9 +36,9 @@ export class ReservationOverviewComponent implements OnInit {
   }
 
   createReservation() {
-    this.currentReservation.entry.token = this.currentReservation.entry.generateRandomToken();
-    this.reservationDataService.addReservationEntry(this.currentReservation.entry);
-
+    console.log("At reservation Overview: " + this.currentReservation.entry.toReservationEntry());
+    this.reservationDataService
+      .addReservationEntry(this.currentReservation.entry.toReservationEntry());
     this.dialogRef.close();
     this.router.navigate(['/successful-reservation']);
   }
