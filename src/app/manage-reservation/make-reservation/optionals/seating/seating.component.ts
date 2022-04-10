@@ -26,6 +26,7 @@ export class SeatingComponent implements OnInit, AfterViewInit {
   seatingFor: number = 0;
   selectedFor: number = 0;
   highlight = false;
+  reservedSeats: string[] = [];
   public currentReservation: CurrentReservationService;
 
   constructor(private dialogRef: MatDialogRef<SeatingComponent>,
@@ -53,10 +54,15 @@ export class SeatingComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    const tables = this.map.nativeElement.childNodes;
-    tables.forEach((table: HTMLAreaElement) => {
-      this.createDiv(table)
-    })
+    this.currentReservation.reservedSeatsData$.subscribe(
+      data => {
+        this.reservedSeats = data;
+        const tables = this.map.nativeElement.childNodes;
+        tables.forEach((table: HTMLAreaElement) => {
+          this.createDiv(table)
+        })
+      }
+    )
   }
 
   createDiv(area: HTMLAreaElement) {
@@ -85,18 +91,11 @@ export class SeatingComponent implements OnInit, AfterViewInit {
   }
 
   checkIfSeatAvailable(id: string) {
-    console.log(id);
-    return !this.currentReservation.reservedSeats.includes(id);
+    return !this.reservedSeats.includes(id);
 
   }
 
   onSave() {
-    const tables = this.container.nativeElement.childNodes;
-    // tables.forEach((table: HTMLAreaElement) => {
-    //   if(table.classList.contains('selected')) {
-    //     this.selectedList.push(table.id);
-    //   }
-    // })
     this.dialogRef.close(this.selectedList);
   }
 

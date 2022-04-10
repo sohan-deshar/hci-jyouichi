@@ -1,0 +1,28 @@
+<div class="main-body">
+  <h1 class="bold">
+    Some Error(s) Occured
+  </h1>
+  <hr>
+  <h3>
+    ERROR DESCRIPTION
+  </h3>
+  <hr>
+  <div class="error-body">
+    <p>
+      <b>Error message:</b>
+      {{errorMessage}}
+    </p>
+    <p>
+      <b>Timestamp:</b>
+      {{timeStamp}}
+    </p>
+  </div>
+  <p>
+    <b>NOTE:</b>
+    If the error message is not clear or helpful to you, please contact the administrator stating the first few lines of the error message.
+  </p>
+  <hr>
+  <button (click)="goHome()" class="button">Home</button>
+
+</div>
+

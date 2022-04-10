@@ -4,16 +4,16 @@ import {BehaviorSubject, Observable, of} from "rxjs";
 import {HttpService} from "./http.service";
 import {CurrentReservationService} from "./current-reservation.service";
 import {map} from "rxjs/operators";
+import {NavigationExtras, Router} from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ReservationDataService {
-  // date: string = "";
   data: ReservationEntry[];
   data$: BehaviorSubject<ReservationEntry[]>;
 
-  constructor(private httpService: HttpService, private currentReservationService: CurrentReservationService) {
+  constructor(private router: Router, private httpService: HttpService, private currentReservationService: CurrentReservationService) {
     this.data = [];
     this.data$ = new BehaviorSubject<ReservationEntry[]>([]);
   }
@@ -29,16 +29,22 @@ export class ReservationDataService {
   }
 
   addReservationEntry(entry: ReservationEntry){
-    console.log("adding reservation entry: ", entry);
+    // console.log("adding reservation entry: ", entry);
     return this.httpService.addReservationEntry(entry).subscribe(
       {
         next: (data) => {
           this.currentReservationService.entry.token = data.token;
           this.currentReservationService.reservationCreated$.next(data);
-          console.log("data: ", data);
+          // console.log("data: ", data);
         },
         error: err => {
-          console.log("error: ", err);
+          let naviagtionExtras: NavigationExtras = {
+            state: {
+              errorMessage: err.error.message
+            }
+          };
+          this.router.navigate(['/error'], naviagtionExtras);
+          // console.log("error: ", err);
         }
       }
     );
@@ -48,7 +54,7 @@ export class ReservationDataService {
     return this.httpService.removeReservationEntry(entryToken, email)
       .pipe(
         map(item => {
-          console.log(item);
+          // console.log(item);
           return item.reservation;
         })
       );
@@ -58,12 +64,18 @@ export class ReservationDataService {
     this.httpService.getReservationsOnDate(date)
       .subscribe({
         next: data => {
-          console.log(data);
+          // console.log(data);
           this.data = data;
           this.data$.next(this.data);
         },
         error: err => {
-          console.log(err);
+          let naviagtionExtras: NavigationExtras = {
+            state: {
+              errorMessage: err.error.message
+            }
+          };
+          this.router.navigate(['/error'], naviagtionExtras);
+          // console.log("error: ", err);
         }
       });
 
@@ -74,7 +86,16 @@ export class ReservationDataService {
       .subscribe(
         {
           next: value => {
-            this.currentReservationService.reservedSeats = value;
+            this.currentReservationService.reservedSeatsData$.next(value);
+          },
+          error: err => {
+            let naviagtionExtras: NavigationExtras = {
+              state: {
+                errorMessage: err.error.message
+              }
+            };
+            this.router.navigate(['/error'], naviagtionExtras);
+            // console.log("error: ", err);
           }
         }
       );

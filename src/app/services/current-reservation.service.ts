@@ -20,7 +20,7 @@ export class CurrentReservationService {
   private _personalInfoFilled: boolean = false;
   private _reservationInfoFilled: boolean = false;
 
-  reservedSeats: string[] = [];
+  reservedSeatsData$: Subject<string[]> = new Subject<string[]>();
 
   constructor(
     private menuService: MenuService) {

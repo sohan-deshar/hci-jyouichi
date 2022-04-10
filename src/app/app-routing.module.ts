@@ -17,6 +17,7 @@ import {
 import {FeedbackComponent} from "./feedback/feedback.component";
 import {MenuPageComponent} from "./menu-page/menu-page.component";
 import {SkipGuard} from "./services/skip.guard";
+import {ErrorPageComponent} from "./error/error-page/error-page.component";
 
 const routes: Routes = [
   {path: "", component: HomeComponent, pathMatch: "full"},
@@ -30,11 +31,13 @@ const routes: Routes = [
   {path: "cancel-reservation", component: CancelReservationComponent},
   {path: "successful-reservation", component: SuccessfulReservationComponent},
   {path: "feedback", component: FeedbackComponent},
-  {path: "menu", component: MenuPageComponent}
+  {path: "menu", component: MenuPageComponent},
+  {path: "error", component: ErrorPageComponent},
+  {path: "**", redirectTo: "/error"}
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {useHash: true})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

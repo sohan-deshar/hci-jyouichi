@@ -7,6 +7,7 @@ import {CurrentReservationService} from "../../../services/current-reservation.s
 import {Router} from "@angular/router";
 import {Order} from "../../../modal/order";
 import {ReservationOverviewComponent} from "../reservation-overview/reservation-overview.component";
+import {ReservationDataService} from "../../../services/reservation-data.service";
 
 export const standardDialogConfig ={
   width: '1100px',
@@ -30,6 +31,7 @@ export class OptionalsComponent implements OnInit {
     private currentReservation: CurrentReservationService,
     private router: Router,
     private injector: Injector,
+    private reservationDataService: ReservationDataService
   ) { }
 
   ngOnInit(): void {
@@ -61,6 +63,7 @@ export class OptionalsComponent implements OnInit {
   }
 
   openSeatingDialog(){
+    this.reservationDataService.getReservedSeatsOnDateAndTime();
     let config = new MatDialogConfig();
     config.width = '1100px';
     config.height = '1100px';

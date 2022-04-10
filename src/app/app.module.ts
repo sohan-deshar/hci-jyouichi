@@ -30,6 +30,7 @@ import { SuccessfulReservationComponent } from './manage-reservation/successful-
 import { FeedbackComponent } from './feedback/feedback.component';
 import { MenuPageComponent } from './menu-page/menu-page.component';
 import { MenuBoxComponent } from './menu-page/menu-box/menu-box.component';
+import { ErrorPageComponent } from './error/error-page/error-page.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { MenuBoxComponent } from './menu-page/menu-box/menu-box.component';
     FeedbackComponent,
     MenuPageComponent,
     MenuBoxComponent,
+    ErrorPageComponent,
   ],
   imports: [
     BrowserModule,

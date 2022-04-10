@@ -12,7 +12,6 @@ export class SkipGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    console.log(route);
     if(route.routeConfig?.path === "reservation-info"){
       if(this.currentReservationService.checkAndEvaluateIfPersonalInfoFilled()){
         return true;

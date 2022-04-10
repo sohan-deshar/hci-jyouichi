@@ -3,6 +3,7 @@ import { MatTable } from '@angular/material/table';
 import { ReservationTableDataSource } from './reservation-table-datasource';
 import {ReservationEntry} from "../../modal/reservation-entry";
 import {ReservationDataService} from "../../services/reservation-data.service";
+import {NavigationExtras, Router} from "@angular/router";
 
 @Component({
   selector: 'app-reservation-table',
@@ -17,7 +18,7 @@ export class ReservationTableComponent implements AfterViewInit {
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = ['token', 'name', 'email', 'phone', 'time', 'edits'];
 
-  constructor(private reservationDataService: ReservationDataService) {
+  constructor(private reservationDataService: ReservationDataService, private router: Router) {
   }
 
   ngAfterViewInit(): void {
@@ -35,6 +36,12 @@ export class ReservationTableComponent implements AfterViewInit {
           this.reservationDataService.removeReservationEntryFromCache(entryToken);
         },
         error: error => {
+          let naviagtionExtras: NavigationExtras = {
+            state: {
+              errorMessage: error.error.message
+            }
+          };
+          this.router.navigate(['/error'], naviagtionExtras);
           console.log(error);
         }
       });

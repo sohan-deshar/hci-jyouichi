@@ -16,7 +16,6 @@ export class ReservationInfoComponent implements OnInit {
   invalidDate: boolean = false;
 
   constructor(
-    private reservationDataService: ReservationDataService,
     private currentReservation: CurrentReservationService,
     private router: Router
   ) { }
@@ -34,7 +33,6 @@ export class ReservationInfoComponent implements OnInit {
     // this.currentReservation.entry.numberOfGuests = form.value.numberOfGuests;
 
     // console.log(this.currentReservation.entry);
-    this.reservationDataService.getReservedSeatsOnDateAndTime();
     this.router.navigate(['/make-reservation/optionals']);
   }
 

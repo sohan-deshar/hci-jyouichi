@@ -75,3 +75,15 @@ body{
   background-color: $color-5;
   color: $color-1;
 }
+
+.button {
+  outline: none;
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+  font-weight: bolder;
+  padding: 0.5em;
+  border-radius: 1.5em;
+  border-color: #EB5E28;
+  background-color: $color-5;
+}
