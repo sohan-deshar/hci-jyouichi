@@ -1,5 +1,7 @@
 # Juichi
 ## What is this?
+![Intro](Screenshots/LandingPage.png)
+___
 A restaurant website developed as a part of Human Computer Interaction 101 course exercise in order to practice the applications of concepts of Human Computer Interaction presented in the lecture series. The site is written in **HTML, SCSS, and Typescript (in Angular framework)**. The `dev` branch of the repo includes codes to persist the data in a backend implemented in [sohan-deshar/hci-jyuichi-full-stack](https://github.com/sohan-deshar/hci-jyuichi-full-stack) repo, whereas the `main` branch just stores the data temporarily in js objects and is thus deleted on refresh.
 
 ## Some features
@@ -12,11 +14,35 @@ A restaurant website developed as a part of Human Computer Interaction 101 cours
 - The **cancel Reservation** option can be used to cancel the reservation by giving in the reservation token and email.
 - A staff site is also implemented adjacent to the regular site in order for staffs to view and delete reservations (using **Angular Material Table**) after successful authentication.
 
-
-## Screenshots of the site.
-
 ## How to run:
 - Download the code.
 - Run `npm install` inside project folder. This installs all the dependencies of the project. ca 400MB
 - Run `ng serve`. This creates a live development server on localhost:xxxxx
 - One can visit the website on local webbrowser by just giving in the link given by `ng serve`.
+
+## Some Screenshots of the site.
+![HomePage](Screenshots/HomePage.png)
+___
+![MenuPage](Screenshots/MenuPage.png)
+___
+![PersonalInfoPage](Screenshots/PersonalInfo.png)
+___
+![ReservationInfoPage](Screenshots/ReservationInfo.png)
+___
+![OptionalsPage](Screenshots/Optionals.png)
+___
+![SeatSelection](Screenshots/SeatSelection.png)
+___
+![PreOrderSelection](Screenshots/PreOrderMenu.png)
+___
+![ReservationOverview](Screenshots/ReservationOverview.png)
+___
+![SuccessfulReservation](Screenshots/Successful-Reservation.png)
+___
+![ReservationCancellation](Screenshots/ReservationCancellation.png)
+___
+![StaffLogin](Screenshots/StaffLogin.png)
+___
+![Staff-view-Reservation-table](Screenshots/StaffsReservationTable.png)
+
+
